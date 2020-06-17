@@ -26,5 +26,13 @@ namespace address_book_ggs_training.Controllers
 
             return View();
         }
+
+        public ActionResult Emanuele(string message, int num = 1)
+        {
+            ViewData["NumTimes"] = num;
+            ViewData["message"] = "Hello from Emanuele";
+
+            return View();
+        }
     }
 }

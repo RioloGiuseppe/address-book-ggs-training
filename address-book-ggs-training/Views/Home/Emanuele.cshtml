@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Emanuele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Emanuele</h2>
+
+<ul>
+    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+    {
+        <li>@ViewData["Message"]</li>
+    }
+</ul>
