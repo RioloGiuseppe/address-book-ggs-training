@@ -42,5 +42,14 @@ namespace address_book_ggs_training.Controllers
 
             return View();
         }
+        public ActionResult Jacopo()
+        {
+            ViewBag.Message = "Jacopo";
+            ViewBag.N1 = 1;
+
+            ViewBag.N2 = 5;
+
+            return View();
+        }
     }
 }
