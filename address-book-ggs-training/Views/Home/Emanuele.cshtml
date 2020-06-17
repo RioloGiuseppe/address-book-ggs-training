@@ -4,11 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Emanuele</h2>
+<h1>Emanuele</h1>
 
-<ul>
-    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
-    {
-        <li>@ViewData["Message"]</li>
-    }
-</ul>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Press the button!</h2>
+        <p><a class="btn btn-default" href="">Empty button &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Date</h2>
+        @if (((int)@ViewData["NumTimes"]) % 2 == 0)
+        {
+            <p>Today is: @ViewData["DateTime"]</p>
+        }
+        else
+        {
+            <p>Refreshed at: @ViewData["DateTime"]</p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>A loop of Hello!</h2>
+        <ul>
+            @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+            {
+                <li>@ViewData["Message"]</li>
+            }
+        </ul>
+    </div>
+</div>
