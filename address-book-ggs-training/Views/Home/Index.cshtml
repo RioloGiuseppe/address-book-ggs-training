@@ -9,34 +9,62 @@
 
     <div class="col-md-9">
         <h2>Contact details</h2>
+        <div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        @Html.Label("name", "Name")
+                        @Html.TextBox("name", null, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
+                        <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        @Html.Label("lastName", "Last name")
+                        @Html.TextBox("lastName", null, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
+                        <small id="lastName" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    @*<div class="form-group">
+                        @Html.Label("name", "Name")
+                        @Html.TextBox("name", null, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
+                        <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>*@
+                </div>
+            </div>
+        </div>
 
-        @Html.Label("Name")
-        <br />
-        @Html.TextBox("name")
-        <br />
-        @Html.Label("Surname")
-        <br />
-        @Html.TextBox("surname")
-        <br />
-        @Html.Label("address", "Address")
-        <br />
-        @Html.TextBox("address")
-        <br />
-        @Html.Label("avatar", "Avatar")
-        <br />
-        <button>Upload image</button>
-        <br />
-        @Html.Label("website", "WebSite")
-        <br />
-        @Html.TextBox("webSite")
-        <br />
-        @Html.Label("birthDay", "BirthDay")
-        <br />
-        <input type="date" name="birth" value="">
-        <br />
-        @Html.CheckBox("shared")
-        @Html.Label("shared", "Shared contact")
-        <br />
-        <button>Save</button>
+
+        @*
+
+            @Html.Label("Name")
+            <br />
+            @Html.TextBox("name")
+            <br />
+            @Html.Label("Surname")
+            <br />
+            @Html.TextBox("surname")
+            <br />
+            @Html.Label("address", "Address")
+            <br />
+            @Html.TextBox("address")
+            <br />
+            @Html.Label("avatar", "Avatar")
+            <br />
+            <button>Upload image</button>
+            <br />
+            @Html.Label("website", "WebSite")
+            <br />
+            @Html.TextBox("webSite")
+            <br />
+            @Html.Label("birthDay", "BirthDay")
+            <br />
+            <input type="date" name="birth" value="">
+            <br />
+            @Html.CheckBox("shared")
+            @Html.Label("shared", "Shared contact")
+            <br />
+            <button>Save</button>*@
     </div>
 </div>  
