@@ -17,11 +17,11 @@
 {
     <div>
         <input type="number" name="insNumber" value="">
-        <input type="submit" value="Generate">
+        <button class="btn btn-default">Generate</button>
     </div>
 }
 
-@if (Request.Form["insNumber"] != null && Request.Form["insNumber"] != "")
+@if (Request.Form["insNumber"] != null && Request.Form["insNumber"].Length > 0)
 {
     if (int.Parse(Request.Form["insNumber"]) > 0)
     {
