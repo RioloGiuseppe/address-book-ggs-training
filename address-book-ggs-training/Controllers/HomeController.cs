@@ -27,10 +27,11 @@ namespace address_book_ggs_training.Controllers
             return View();
         }
 
-        public ActionResult Emanuele(string message, int num = 1)
+        public ActionResult Emanuele()
         {
-            ViewData["NumTimes"] = num;
-            ViewData["message"] = "Hello from Emanuele";
+            ViewData["NumTimes"] = 2;
+            ViewData["Message"] = "Hello from Emanuele";
+            ViewData["DateTime"] = DateTime.Now;
 
             return View();
         }
