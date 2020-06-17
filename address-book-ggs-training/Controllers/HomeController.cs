@@ -35,5 +35,12 @@ namespace address_book_ggs_training.Controllers
 
             return View();
         }
+
+        public ActionResult Maicol()
+        {
+            ViewBag.Message = "Maicol's page.";
+
+            return View();
+        }
     }
 }

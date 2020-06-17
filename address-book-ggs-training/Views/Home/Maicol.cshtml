@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Maicol";
+
+    Random rnd = new Random();
+    int luckyNumber = rnd.Next(1, 99);
+}
+
+<h2>Maicol</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+<p>Today is <strong>@DateTime.Now.DayOfWeek</strong></p>
+<p>Lucky number: <strong>@luckyNumber</strong></p>
+<hr />
+@Html.Label("Insert a value and press the Generate button")
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="number" name="insNumber" value="">
+        <input type="submit" value="Generate">
+    </div>
+}
+
+@if (Request.Form["insNumber"] != null && Request.Form["insNumber"] != "")
+{
+    if (int.Parse(Request.Form["insNumber"]) > 0)
+    {
+        <h4>Result</h4>
+        for (int pos = 1; pos <= int.Parse(Request.Form["insNumber"]); pos++)
+        {
+            <p>@rnd.Next(1, 50)</p>
+        }
+    }
+    else
+    {
+        <p>Invalid value</p>
+    }
+}
