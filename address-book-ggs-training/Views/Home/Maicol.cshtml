@@ -1,38 +1,24 @@
 ﻿@{
-    ViewBag.Title = "Maicol";
-
-    Random rnd = new Random();
-    int luckyNumber = rnd.Next(1, 99);
+    ViewBag.Title = "Contact details";
 }
 
-<h2>Maicol</h2>
-<h4>@ViewBag.Message</h4>
-<hr />
-<p>Today is <strong>@DateTime.Now.DayOfWeek</strong></p>
-<p>Lucky number: <strong>@luckyNumber</strong></p>
-<hr />
-@Html.Label("Insert a value and press the Generate button")
+<h2>Contact details</h2>
 
-@using (Html.BeginForm())
-{
-    <div>
-        <input type="number" name="insNumber" value="">
-        <button class="btn btn-default">Generate</button>
-    </div>
-}
-
-@if (Request.Form["insNumber"] != null && Request.Form["insNumber"].Length > 0)
-{
-    if (int.Parse(Request.Form["insNumber"]) > 0)
-    {
-        <h4>Result</h4>
-        for (int pos = 1; pos <= int.Parse(Request.Form["insNumber"]); pos++)
-        {
-            <p>@rnd.Next(1, 50)</p>
-        }
-    }
-    else
-    {
-        <p>Invalid value</p>
-    }
-}
+@Html.Label("Name")
+<br />
+@Html.TextBox("name")
+<br />
+@Html.Label("Surname")
+<br />
+@Html.TextBox("surname")
+<br />
+@Html.Label("WebSite")
+<br />
+@Html.TextBox("WebSite")
+<br />
+@Html.Label("BirthDay")
+<br />
+<input type="date" name="birth" value="">
+<br />
+@Html.CheckBox("Shared")
+@Html.Label("Shared contact")
