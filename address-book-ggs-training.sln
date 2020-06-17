@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training\address-book-ggs-training.csproj", "{424F3A14-4536-459C-BE88-6EC3C0EFDEBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training\address-book-ggs-training.csproj", "{C557DC03-8485-4D16-834D-049BB313DE98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{424F3A14-4536-459C-BE88-6EC3C0EFDEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{424F3A14-4536-459C-BE88-6EC3C0EFDEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{424F3A14-4536-459C-BE88-6EC3C0EFDEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{424F3A14-4536-459C-BE88-6EC3C0EFDEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C557DC03-8485-4D16-834D-049BB313DE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C557DC03-8485-4D16-834D-049BB313DE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C557DC03-8485-4D16-834D-049BB313DE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C557DC03-8485-4D16-834D-049BB313DE98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C480496E-DD85-4612-B62B-1BCDBB7EBFF3}
+		SolutionGuid = {03CF1C07-826E-4B8F-8848-0EA7423A24BD}
 	EndGlobalSection
 EndGlobal
