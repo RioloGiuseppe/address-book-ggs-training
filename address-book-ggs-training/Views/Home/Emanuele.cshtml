@@ -2,21 +2,13 @@
 @{
     ViewBag.Title = "Emanuele";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    //var joe = new Person("Joe", 33);
 }
 
 <h2>Emanuele</h2>
 
-<ul>
-    @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
-    {
-        <li>@ViewData["Message"]</li>
-    }
-</ul>
-
 <div class="row">
     <div class="col-md-4">
-        <h2>Person class test</h2>
+        <h2>press the button!</h2>
         <p><a class="btn btn-default" href="">Empty button &raquo;</a></p>
     </div>
     <div class="col-md-4">
@@ -31,8 +23,11 @@
         }
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <ul>
+            @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+            {
+                <li>@ViewData["Message"]</li>
+            }
+        </ul>
     </div>
 </div>
