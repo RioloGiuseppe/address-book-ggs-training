@@ -3,55 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Address book", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Emanuele", "Emanuele", "Home")</li>
-                    <li>@Html.ActionLink("Maicol", "Maicol", "Home")</li>
-                    <li>@Html.ActionLink("Jacopo", "Jacopo", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li class="nav-item text-nowrap">
-                        <a class="nav-link" href="#">Add contact</a>
-                    </li>
-                    <li class="nav-item text-nowrap">
-                        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        @Html.ActionLink("Address book", "Index", "Home", new { area = "" }, new { @class = "navbar-brand col-sm-3 col-md-2 mr-0" })
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
         @RenderBody()
         <hr />
         <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                    <div class="sidebar-sticky">
-
-                    </div>
-                </nav>
-
-                <div class="col-lg-1">
-
-                </div>
-            </div>
-
             <footer>
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </footer>

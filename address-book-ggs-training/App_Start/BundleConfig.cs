@@ -24,6 +24,9 @@ namespace address_book_ggs_training
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-grid.css",
+                      "~/Content/bootstrap-reboot.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
