@@ -28,6 +28,9 @@ namespace address_book_ggs_training
                       "~/Content/bootstrap-reboot.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/popper").Include(
+                "~/Scripts/umd/popper.min.js"));
         }
     }
 }
