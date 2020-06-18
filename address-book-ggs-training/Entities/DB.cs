@@ -20,7 +20,6 @@ namespace address_book_ggs_training.Entities
             contacts.Add(contact);
         }
 
-
         public static bool RemoveContact(int id)
         {
             var contactToDelete = contacts.FirstOrDefault(x => x.Id == id);
@@ -29,22 +28,20 @@ namespace address_book_ggs_training.Entities
             return true;
         }
 
-
         public static IEnumerable<Contact> GetContacts(int from, int n)
         {
-            if (contacts.Count < from-1  ) return  Enumerable.Empty<Contact>();
+            if (contacts.Count < from - 1) return Enumerable.Empty<Contact>();
 
             int nRemainingContacts = contacts.Count - from - 1;
 
-            if (nRemainingContacts<n)
+            if (nRemainingContacts < n)
                 return contacts.Skip(from).Take(nRemainingContacts);
-            
+
             return contacts.Skip(from).Take(n);
         }
 
         public static bool UpdateContact(int id, Contact newContact)
         {
-
             var contactToUpdate = contacts.FirstOrDefault(x => x.Id == id);
             if (contactToUpdate == null) return false;
 
@@ -60,12 +57,6 @@ namespace address_book_ggs_training.Entities
             contactToUpdate.WebSite = newContact.WebSite;
 
             return true;
-
-
-
         }
-
-
-
     }
 }
