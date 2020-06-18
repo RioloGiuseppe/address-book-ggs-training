@@ -11,60 +11,134 @@
         <h2>Contact details</h2>
         <div>
             <div class="row">
-                <div class="col-sm">
+                <div class="col">
                     <div class="form-group">
                         @Html.Label("name", "Name")
                         @Html.TextBox("name", null, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
                         <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col">
                     <div class="form-group">
                         @Html.Label("lastName", "Last name")
                         @Html.TextBox("lastName", null, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
                         <small id="lastName" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
-                <div class="col-sm">
-                    @*<div class="form-group">
-                        @Html.Label("name", "Name")
-                        @Html.TextBox("name", null, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
-                        <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>*@
+            </div>
+
+            @{
+                for (int i = 0; i < 5; i++)
+                {
+                    <div class="row">
+                        <div class="col">
+                            @Html.Label("phone", "Phone number")
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Home</a>
+                                        <a class="dropdown-item" href="#">Mobile</a>
+                                        <a class="dropdown-item" href="#">Work</a>
+                                    </div>
+                                </div>
+                                @Html.TextBox("phone", null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            <div class="row">
+                <button class="btn btn-light" onClick="creatediv()">Add number</button>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    @Html.Label("email", "Email address")
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Personal</a>
+                                <a class="dropdown-item" href="#">Work</a>
+                            </div>
+                        </div>
+                        @Html.TextBox("email", null, new { @class = "form-control", ariaDescribedby = "emailHelp", placeholder = "Enter email address" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("streetAddress", "Street address")
+                        @Html.TextBox("streetAddress", null, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
+                        <small id="streetAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("cityAddress", "City")
+                        @Html.TextBox("cityAddress", null, new { @class = "form-control", ariaDescribedby = "cityAddressHelp", placeholder = "Enter city" })
+                        <small id="cityAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("stateAddress", "State")
+                        @Html.TextBox("stateAddress", null, new { @class = "form-control", ariaDescribedby = "stateAddressHelp", placeholder = "Enter state" })
+                        <small id="stateAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("birth", "Birthdate")
+                        <input ariaDescribedby="birthHelp" class="form-control" id="birth" name="birth" placeholder="Enter date of birth" type="date" value="" />
+                        <small id="birthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("website", "WebSite")
+                        @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
+                        <small id="websiteHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    @Html.Label("avatar", "Avatar")
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="avatar">
+                            <label class="custom-file-label" for="avatar">Choose an image</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
         @*
-
-            @Html.Label("Name")
-            <br />
-            @Html.TextBox("name")
-            <br />
-            @Html.Label("Surname")
-            <br />
-            @Html.TextBox("surname")
-            <br />
-            @Html.Label("address", "Address")
-            <br />
-            @Html.TextBox("address")
-            <br />
-            @Html.Label("avatar", "Avatar")
-            <br />
-            <button>Upload image</button>
-            <br />
             @Html.Label("website", "WebSite")
             <br />
             @Html.TextBox("webSite")
-            <br />
-            @Html.Label("birthDay", "BirthDay")
-            <br />
-            <input type="date" name="birth" value="">
             <br />
             @Html.CheckBox("shared")
             @Html.Label("shared", "Shared contact")
             <br />
             <button>Save</button>*@
     </div>
-</div>  
+</div>
+
+<script>
+    function creatediv() {
+        $('#divNumber').append('<button onClick="creatediv()">Click me!</button>');
+    }
+</script>
