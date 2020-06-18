@@ -26,22 +26,33 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    @Html.Label("phone", "Phone number")
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Home</a>
-                                <a class="dropdown-item" href="#">Mobile</a>
-                                <a class="dropdown-item" href="#">Work</a>
+
+            @{
+                for (int i = 0; i < 5; i++)
+                {
+                    <div class="row">
+                        <div class="col">
+                            @Html.Label("phone", "Phone number")
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Home</a>
+                                        <a class="dropdown-item" href="#">Mobile</a>
+                                        <a class="dropdown-item" href="#">Work</a>
+                                    </div>
+                                </div>
+                                @Html.TextBox("phone", null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
                             </div>
                         </div>
-                        @Html.TextBox("phone", null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
                     </div>
-                </div>
+                }
+            }
+
+            <div class="row">
+                <button class="btn btn-light" onClick="creatediv()">Add number</button>
             </div>
+
             <div class="row">
                 <div class="col">
                     @Html.Label("email", "Email address")
@@ -57,6 +68,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -80,6 +92,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -122,4 +135,10 @@
             <br />
             <button>Save</button>*@
     </div>
-</div>  
+</div>
+
+<script>
+    function creatediv() {
+        $('#divNumber').append('<button onClick="creatediv()">Click me!</button>');
+    }
+</script>
