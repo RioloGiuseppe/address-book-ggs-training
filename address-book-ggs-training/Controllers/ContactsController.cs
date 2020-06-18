@@ -12,10 +12,10 @@ namespace address_book_ggs_training.Controllers
     public class ContactsController : Controller
     {
         // GET: Contacts
-        [HttpPost]
-        public JsonResult Remove(int contactId)
-        {
-            return  Json (new { result = DB.RemoveContact(contactId) });
-        }
+        //[HttpPost]
+        //public JsonResult Remove(int contactId)
+        //{
+        //    return  Json (new { result = DB.RemoveContact(contactId) });
+        //}
     }
 }
