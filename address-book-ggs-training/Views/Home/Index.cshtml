@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-3">
-        Lista
+        <h2>Contact list</h2>
     </div>
 
     <div class="col-md-9">
@@ -96,7 +96,7 @@
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("birth", "Birthdate")
-                        <input ariaDescribedby="birthHelp" class="form-control" id="birth" name="birth" placeholder="Enter date of birth" type="date" value="" />
+                        @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", placeholder = "Enter date of birth", type = "date" })
                     </div>
                 </div>
             </div>
