@@ -141,6 +141,7 @@
     <Compile Include="Entities\EmailAddress.cs" />
     <Compile Include="Entities\ITypedId.cs" />
     <Compile Include="Entities\TelephoneNumber.cs" />
+    <Compile Include="Extension\LinqExplain.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
