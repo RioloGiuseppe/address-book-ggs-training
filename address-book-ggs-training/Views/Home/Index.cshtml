@@ -100,6 +100,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -108,6 +109,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     @Html.Label("avatar", "Avatar")
@@ -119,8 +121,37 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("custom", "Custom field")
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                            </div>
+                            @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.CheckBox("shared")
+                        @Html.Label("shared", "Shared contact")
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-light">Save</button>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
 </div>
 
