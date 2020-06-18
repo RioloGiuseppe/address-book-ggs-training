@@ -48,5 +48,12 @@ namespace address_book_ggs_training.Entities
             Lastname = contact.Lastname;
             Avatar = contact.Avatar;
         }
+
+        public ContactShort(int id, string name, string lastname)
+        {
+            Id = id;
+            Name = name;
+            Lastname = lastname;
+        }
     }
 }

@@ -5,6 +5,21 @@
 <div class="row">
     <div class="col-md-3">
         <h2>Contact list</h2>
+
+        <div class="list-group">
+            @{
+                foreach (address_book_ggs_training.Entities.ContactShort c in ViewBag.Contacts)
+                {
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@c.Name @c.Lastname</h5>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+
     </div>
 
     <div class="col-md-9">
@@ -14,44 +29,45 @@
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("name", "Name")
-                        @Html.TextBox("name", null, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
+                        @Html.TextBox("name", (string)ViewBag.Contact.Name, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name", value = "vff" })
                         <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("lastName", "Last name")
-                        @Html.TextBox("lastName", null, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
+                        @Html.TextBox("lastName", (string)ViewBag.Contact.Lastname, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
                         <small id="lastName" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
             </div>
+            <div id="divNumber">
+                @{
 
-            @{
-                for (int i = 0; i < 5; i++)
-                {
-                    <div class="row">
-                        <div class="col">
-                            @Html.Label("phone", "Phone number")
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Home</a>
-                                        <a class="dropdown-item" href="#">Mobile</a>
-                                        <a class="dropdown-item" href="#">Work</a>
+                    for (int i = 0; i < ViewBag.Contact.Numbers.Count; i++)
+                    {
+                        <div class="row">
+                            <div class="col">
+                                @Html.Label("phone_" + i, "Phone number")
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Home</a>
+                                            <a class="dropdown-item" href="#">Mobile</a>
+                                            <a class="dropdown-item" href="#">Work</a>
+                                        </div>
                                     </div>
+                                    @Html.TextBox("phone_" + i, (string)ViewBag.Contact.Numbers[i].Number, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
                                 </div>
-                                @Html.TextBox("phone", null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
                             </div>
                         </div>
-                    </div>
+                    }
                 }
-            }
-
+            </div>
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-light" onClick="creatediv()">Add number</button>
+                    <button class="btn btn-primary float-right" onClick="creatediv()">Add number</button>
                 </div>
             </div>
 
@@ -156,6 +172,24 @@
 
 <script>
     function creatediv() {
-        $('#divNumber').append('<button onClick="creatediv()">Click me!</button>');
+        $('#divNumber').append(`
+                                    <div class="row">
+                            <div class="col">
+                                @Html.Label("phone", "Phone number")
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Home</a>
+                                            <a class="dropdown-item" href="#">Mobile</a>
+                                            <a class="dropdown-item" href="#">Work</a>
+                                        </div>
+                                    </div>
+                                    @Html.TextBox("phone",null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
+                                </div>
+                            </div>
+                        </div>
+
+            `   );
     }
 </script>
