@@ -6,6 +6,10 @@
 <div class="row">
     <div class="col-md-3">
 
+        <h2>Contact list</h2>
+    </div>
+
+
         <h2>Contacts (@address_book_ggs_training.Entities.DB.GetNContacts())</h2>
 
 
@@ -73,7 +77,9 @@
             }
 
             <div class="row">
-                <button class="btn btn-light" onClick="creatediv()">Add number</button>
+                <div class="col">
+                    <button class="btn btn-light" onClick="creatediv()">Add number</button>
+                </div>
             </div>
 
             <div class="row">
@@ -97,21 +103,18 @@
                     <div class="form-group">
                         @Html.Label("streetAddress", "Street address")
                         @Html.TextBox("streetAddress", null, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
-                        <small id="streetAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("cityAddress", "City")
                         @Html.TextBox("cityAddress", null, new { @class = "form-control", ariaDescribedby = "cityAddressHelp", placeholder = "Enter city" })
-                        <small id="cityAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("stateAddress", "State")
                         @Html.TextBox("stateAddress", null, new { @class = "form-control", ariaDescribedby = "stateAddressHelp", placeholder = "Enter state" })
-                        <small id="stateAddressHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
             </div>
@@ -120,43 +123,61 @@
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("birth", "Birthdate")
-                        <input ariaDescribedby="birthHelp" class="form-control" id="birth" name="birth" placeholder="Enter date of birth" type="date" value="" />
-                        <small id="birthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", placeholder = "Enter date of birth", type = "date" })
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("website", "WebSite")
                         @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
-                        <small id="websiteHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     @Html.Label("avatar", "Avatar")
                     <div class="input-group mb-3">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="avatar">
-                            <label class="custom-file-label" for="avatar">Choose an image</label>
+                            @Html.Label("avatar", "Choose an image", new { @class = "custom-file-label" })
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.Label("custom", "Custom field")
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                            </div>
+                            @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        @Html.CheckBox("shared")
+                        @Html.Label("shared", "Shared contact")
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-light">Save</button>
+                </div>
+            </div>
         </div>
-
-
-        @*
-            @Html.Label("website", "WebSite")
-            <br />
-            @Html.TextBox("webSite")
-            <br />
-            @Html.CheckBox("shared")
-            @Html.Label("shared", "Shared contact")
-            <br />
-            <button>Save</button>*@
     </div>
 </div>
 
