@@ -1,49 +1,51 @@
-﻿using System;
+﻿using address_book_ggs_training.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace address_book_ggs_training.Entities
 {
-    public static class DB
+    public class InMemoryDB
     {
-        private static List<Contact> contacts;
+        private List<Contact> contacts;
 
-        static DB()
+        public InMemoryDB()
         {
             contacts = new List<Contact>();
         }
 
-        public static void AddContact(Contact contact)
+        public Contact AddContact(Contact contact)
         {
-            contact.Id = contacts.Count;
+            contact.Id = contacts.Max(o => o.Id) + 1;
             contacts.Add(contact);
+            return contact;
         }
 
-        public static bool RemoveContact(int id)
+        public bool RemoveContact(int id)
         {
-            var contactToDelete = contacts.FirstOrDefault(x => x.Id == id);
-            if (contactToDelete == null) return false;
-            contacts.Remove(contactToDelete);
-            return true;
+            int rm = contacts.RemoveAll(x => x.Id == id);
+            return rm > 1;
         }
 
-        public static IEnumerable<Contact> GetContacts(int from, int n)
+        public List<Contact> GetContacts(int skip = 0, int? take = null)
         {
-            if (contacts.Count < from - 1) return Enumerable.Empty<Contact>();
-
-            int nRemainingContacts = contacts.Count - from - 1;
-
-            if (nRemainingContacts < n)
-                return contacts.Skip(from).Take(nRemainingContacts);
-
-            return contacts.Skip(from).Take(n);
+            if (take == null)
+            {
+                return contacts.Skip(skip).ToList();
+            }
+            return contacts.Skip(skip).Take(take.Value).ToList();
         }
 
-        public static bool UpdateContact(int id, Contact newContact)
+        public List<ContactShort> GetContactsShort(int skip = 0, int? take = null)
+        {
+            return GetContacts(skip, take).Select(o => new ContactShort(o)).ToList();
+        }
+
+        public Contact UpdateContact(int id, Contact newContact)
         {
             var contactToUpdate = contacts.FirstOrDefault(x => x.Id == id);
-            if (contactToUpdate == null) return false;
+            if (contactToUpdate == null) return null;
 
             contactToUpdate.Address = newContact.Address;
             contactToUpdate.Avatar = newContact.Avatar;
@@ -56,7 +58,7 @@ namespace address_book_ggs_training.Entities
             contactToUpdate.Shared = newContact.Shared;
             contactToUpdate.WebSite = newContact.WebSite;
 
-            return true;
+            return contactToUpdate;
         }
     }
 }
