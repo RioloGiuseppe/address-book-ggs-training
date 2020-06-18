@@ -12,6 +12,22 @@ namespace address_book_ggs_training.Entities
         static DB()
         {
             contacts = new List<Contact>();
+
+
+            //Adding test Contacts
+            Contact contact = new Contact();
+            contact.Name = "Jacopo";
+            contact.Lastname = "B.";
+
+            Contact contact2 = new Contact();
+            contact2.Name = "Emanuele";
+
+            Contact contact3 = new Contact();
+            contact3.Name = "Maicol";
+
+            AddContact(contact);
+            AddContact(contact2);
+            AddContact(contact3);
         }
 
         public static void AddContact(Contact contact)
@@ -34,7 +50,7 @@ namespace address_book_ggs_training.Entities
         {
             if (contacts.Count < from-1  ) return  Enumerable.Empty<Contact>();
 
-            int nRemainingContacts = contacts.Count - from - 1;
+            int nRemainingContacts = contacts.Count - from;
 
             if (nRemainingContacts<n)
                 return contacts.Skip(from).Take(nRemainingContacts);
@@ -65,7 +81,10 @@ namespace address_book_ggs_training.Entities
 
         }
 
-
+        public static int GetNContacts()
+        {
+            return contacts.Count;
+        }
 
     }
 }

@@ -1,12 +1,35 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Address Book";
 }
 
 <div class="row">
     <div class="col-md-3">
-        Lista
-    </div>
 
+        <h2>Contacts (@address_book_ggs_training.Entities.DB.GetNContacts())</h2>
+
+
+        @foreach (var existingContact in address_book_ggs_training.Entities.DB.GetContacts(0, 10))
+        {
+
+        <div  style="float:left;">
+            @Html.TextBox("textboxExistingContact", @existingContact.Name + " " + existingContact.Lastname, new { @class = "form-control", ariaDescribedby = "nameLastnameHelp", @readonly = "readonly" })
+        </div>
+        <div style="float:right;">
+            <button name="buttonDelete" class="btn btn-light" onclick="removeContact(@existingContact.Id)">REMOVE</button>
+        </div>
+
+
+       
+     
+        }
+
+
+      
+
+
+    </div>
+    <hr />
     <div class="col-md-9">
         <h2>Contact details</h2>
         <div>
@@ -137,8 +160,24 @@
     </div>
 </div>
 
+
+
 <script>
     function creatediv() {
         $('#divNumber').append('<button onClick="creatediv()">Click me!</button>');
+    }
+
+    function removeContact(id) {
+        console.log("Removing contact id ", id);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Remove", "Contacts")',
+            contentType: "application/json; charset=utf-8",
+            data: { contactId: id },
+            dataType: "json",
+            success: function(recData) { alert(resData); },
+            error: function() { alert('A error'); }
+        });
+
     }
 </script>
