@@ -1,6 +1,7 @@
 ﻿using address_book_ggs_training.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +20,8 @@ namespace address_book_ggs_training.Controllers
                 new ContactShort(4, "Giuia", "Rossi")
             };
 
-            ViewBag.Contact = new Contact() {
+            ViewBag.Contact = new Contact()
+            {
                 Address = "Via...",
                 Name = "Pippo",
                 Lastname = "Topolino",
