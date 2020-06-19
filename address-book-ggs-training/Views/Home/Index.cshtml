@@ -62,6 +62,7 @@
                     }
                 }
             </div>
+
             <div class="row">
                 <div class="col">
                     <button class="btn btn-primary float-right" onClick="createNumber()">Add number</button>
@@ -268,8 +269,6 @@
     }
 
     function autofill() {
-
-
         $("#name").val(generateRandomName());
         $("#lastName").val(generateRandomLastName());
         $('input', $('#divNumber')).each(function () {
@@ -286,27 +285,23 @@
     function generateRandomName() {
         const names = ["Francesco", "Leonardo", "Alessandro", "Lorenzo", "Mattia", "Andrea", "Gabriele", "Matteo", "Tommaso", "Sofia", "Giulia", "Aurora", "Alice", "Ginevra", "Emma", "Giorgia","Greta","Martina"];
         return names[Math.floor(Math.random() * names.length)];
-
     }
 
     function generateRandomLastName() {
         const lastnames = ["Rossi", "Ferrari", "Russo", "Bianchi", "Esposito", "Colombo", "Romano", "Ricci", "Gallo", "Greco", "Conti", "Marino", "Bruno", "Costa", "Barbieri", "Moretti", "Rizzo", "Fontana"];
         return lastnames[Math.floor(Math.random() * lastnames.length)];
-
     }
 
     function generateRandomPhoneNumber() {
-
         var fixedPrefix = "+39 ";
-
         return fixedPrefix +  formatPhoneNumber(Math.random().toString().slice(2, 11));
     }
+
     function formatPhoneNumber(s) {
         return s.toString().replace(/\d{3}(?=.)/g, '$& ');
     }
 
     function generateRandomMailAddress() {
-
         var chars = 'abcdefghijklmnopqrstuvwxyz';
         return chars[Math.floor(Math.random()*26)] + Math.random().toString(36).substring(2,11) + "@@gmail.com";
     }
@@ -317,8 +312,6 @@
     }
 
     function generateRandomCity() {
-
-
         var cities = {
             'AG': 'Agrigento',
             'AL': 'Alessandria',
@@ -443,14 +436,15 @@
                 ret = key;
         return ret;
     }
-    function generateRandomBirthday() {
 
+    function generateRandomBirthday() {
         var fromDate = new Date();
         fromDate.setFullYear(fromDate.getFullYear() - 100);
         var toDate = new Date();
         var resultDate = new Date(fromDate.getTime() + Math.random() * (toDate.getTime() - fromDate.getTime()));
         return formatDate(resultDate);
     }
+
     function formatDate(date) {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -464,4 +458,5 @@
 
         return [year, month, day].join('-');
     }
+
 </script>
