@@ -16,7 +16,6 @@ namespace address_book_ggs_training.Entities
         public DateTime BirthDay { get; set; }
         public string WebSite { get; set; }
         public bool Shared { get; set; }
-
         public List<ITypedId> Numbers { get; set; }
         public List<ITypedId> Emails { get; set; }
         public Dictionary<string, string> Customs { get; set; }
