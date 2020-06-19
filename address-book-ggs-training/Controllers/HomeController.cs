@@ -26,15 +26,11 @@ namespace address_book_ggs_training.Controllers
                 Avatar = "",
                 BirthDay = DateTime.Now.AddDays(-5045),
                 Id = 1,
+
                 Numbers = new List<ITypedId>()
                 {
                     new TelephoneNumber("Home", "+39 051 552 888"),
                     new TelephoneNumber("Work", "+39 051 888 225")
-                },
-                Customs = new Dictionary<string, string>()
-                {
-                    { "Note", "Bla bla bla" },
-                    { "Note2", "Bla2" }
                 }
             };
 
