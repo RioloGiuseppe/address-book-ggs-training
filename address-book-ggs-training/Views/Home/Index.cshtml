@@ -91,7 +91,7 @@
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("streetAddress", "Street address")
-                        @Html.TextBox("streetAddress", null, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
+                        @Html.TextBox("streetAddress", (string)ViewBag.Contact.Address, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
                     </div>
                 </div>
                 <div class="col">
@@ -112,7 +112,7 @@
                 <div class="col">
                     <div class="form-group">
                         @Html.Label("birth", "Birthdate")
-                        @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", placeholder = "Enter date of birth", type = "date" })
+                        @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", type = "date", placeholder = "Enter date of birth" })
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        @Html.Label("website", "WebSite")
+                        @Html.Label("website", "Website")
                         @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
                     </div>
                 </div>
@@ -138,17 +138,29 @@
                 </div>
             </div>
 
+            <div id="divCustom">
+                @{
+                    for (int i = 0; i < ViewBag.Contact.Customs.Count; i++)
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.Label("custom_" + i, "Custom field")
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            @Html.TextBox("custom_" + i, null, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                                        </div>
+                                        @Html.TextBox("custom_" + i, null, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
             <div class="row">
                 <div class="col">
-                    <div class="form-group">
-                        @Html.Label("custom", "Custom field")
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
-                            </div>
-                            @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
-                        </div>
-                    </div>
+                    <button class="btn btn-primary float-right" onClick="createCustom()">Add custom field</button>
                 </div>
             </div>
 
@@ -186,6 +198,24 @@
                                         </div>
                                     </div>
                                     @Html.TextBox("phone",null, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
+                                </div>
+                            </div>
+                        </div>
+            `   );
+    }
+
+    function createCustom() {
+        $('#divCustom').append(`
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.Label("custom", "Custom field")
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                                        </div>
+                                        @Html.TextBox("custom", null, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                                    </div>
                                 </div>
                             </div>
                         </div>

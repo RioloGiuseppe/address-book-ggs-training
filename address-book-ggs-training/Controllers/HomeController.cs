@@ -30,10 +30,13 @@ namespace address_book_ggs_training.Controllers
                 {
                     new TelephoneNumber("Home", "+39 051 552 888"),
                     new TelephoneNumber("Work", "+39 051 888 225")
+                },
+                Customs = new Dictionary<string, string>()
+                {
+                    { "Note", "Bla bla bla" },
+                    { "Note2", "Bla2" }
                 }
-            
             };
-
 
             return View();
         }
