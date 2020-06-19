@@ -31,6 +31,15 @@ namespace address_book_ggs_training.Controllers
                 {
                     new TelephoneNumber("Home", "+39 051 552 888"),
                     new TelephoneNumber("Work", "+39 051 888 225")
+                },
+                Emails = new List<ITypedId>()
+                {
+                    new EmailAddress("Home", "home@email.it"),
+                    new EmailAddress("Work", "work@email.it")
+                },
+                Customs = new Dictionary<string, string>()
+                {
+                    { "Note", "Bla bla bla"}
                 }
             };
 
