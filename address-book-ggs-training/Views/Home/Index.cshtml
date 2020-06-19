@@ -150,17 +150,17 @@
 
             <div id="divCustom">
                 @{
-                    for (int i = 0; i < ViewBag.Contact.Customs.Count; i++)
+                    foreach (KeyValuePair<string, string> item in ViewBag.Contact.Customs)
                     {
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    @Html.Label("custom_" + i, "Custom field")
+                                    @Html.Label("custom_" + item, "Custom field")
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            @Html.TextBox("custom_" + i, null@*(string)ViewBag.Contact.Customs.Keys.ElementAt(i)*@, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                                            @Html.TextBox("custom_" + item, item.Key, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
                                         </div>
-                                        @Html.TextBox("custom_" + i, null @*(string)ViewBag.Contact.Customs.Values.ElementAt(i)*@, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                                        @Html.TextBox("custom_" + item, item.Value, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
                                     </div>
                                 </div>
                             </div>
