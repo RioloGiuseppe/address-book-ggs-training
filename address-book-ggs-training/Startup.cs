@@ -1,5 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using address_book_ggs_training.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: OwinStartupAttribute(typeof(address_book_ggs_training.Startup))]
 namespace address_book_ggs_training
@@ -9,6 +11,8 @@ namespace address_book_ggs_training
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            app.CreatePerOwinContext(InMemoryDB.Create);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using address_book_ggs_training.Entities;
+using address_book_ggs_training.Models;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,36 @@ namespace address_book_ggs_training.Controllers
 {
     public class HomeController : Controller
     {
+        private InMemoryDB _inMemoryDB;
+        public HomeController()
+        {
+
+        }
+
+        public HomeController(InMemoryDB inMemoryDB)
+        {
+            _inMemoryDB = inMemoryDB;
+        }
+
+        public InMemoryDB InMemoryDB
+        {
+            get
+            {
+                return _inMemoryDB ?? HttpContext.GetOwinContext().Get<InMemoryDB>();
+            }
+            private set
+            {
+                _inMemoryDB = value;
+            }
+        }
+
+
+
         public ActionResult Index()
         {
+            var uuu = InMemoryDB;
+
+
             ViewBag.Contacts = new List<ContactShort>()
             {
                 new ContactShort(1, "Carlo", "Verdone"),
@@ -60,5 +90,13 @@ namespace address_book_ggs_training.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Save(ContactViewModel model)
+        {
+            return View("index");
+        }
+
     }
 }

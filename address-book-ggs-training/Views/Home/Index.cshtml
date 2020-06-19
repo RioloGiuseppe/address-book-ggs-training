@@ -1,4 +1,5 @@
-﻿
+﻿@using address_book_ggs_training.Models
+@model ContactViewModel
 @{
     ViewBag.Title = "Address Book";
 }
@@ -24,173 +25,176 @@
     <div class="col-md-9">
         <h2>Contact details</h2>
         <div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("name", "Name")
-                        @Html.TextBox("name", (string)ViewBag.Contact.Name, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("lastName", "Last name")
-                        @Html.TextBox("lastName", (string)ViewBag.Contact.Lastname, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
-                    </div>
-                </div>
-            </div>
-
-            <div id="divNumber">
-                @{
-                    for (int i = 0; i < ViewBag.Contact.Numbers.Count; i++)
-                    {
-                        <div class="row">
-                            <div class="col">
-                                @Html.Label("phone_" + i, "Phone number")
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Home</a>
-                                            <a class="dropdown-item" href="#">Mobile</a>
-                                            <a class="dropdown-item" href="#">Work</a>
-                                        </div>
-                                    </div>
-                                    @Html.TextBox("phone_" + i, (string)ViewBag.Contact.Numbers[i].Number, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
-                                </div>
-                            </div>
+            @using (Html.BeginForm("Save", "Home", null, FormMethod.Post, new { @class = "", role = "form" }))
+            {
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, (string)ViewBag.Contact.Name, new { @class = "form-control", ariaDescribedby = "nameHelp", placeholder = "Enter name" })
                         </div>
-                    }
-                }
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-primary float-right" onClick="createNumber()">Add number</button>
-                </div>
-            </div>
-
-            <div id="divEmail">
-                @{
-                    for (int i = 0; i < ViewBag.Contact.Emails.Count; i++)
-                    {
-                        <div class="row">
-                            <div class="col">
-                                @Html.Label("email", "Email address")
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Personal</a>
-                                            <a class="dropdown-item" href="#">Work</a>
-                                        </div>
-                                    </div>
-                                    @Html.TextBox("email", (string)ViewBag.Contact.Emails[i].Number, new { @class = "form-control", ariaDescribedby = "emailHelp", placeholder = "Enter email address" })
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-primary float-right" onClick="createEmail()">Add e-mail</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("streetAddress", "Street address")
-                        @Html.TextBox("streetAddress", (string)ViewBag.Contact.Address, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
                     </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("cityAddress", "City")
-                        @Html.TextBox("cityAddress", null, new { @class = "form-control", ariaDescribedby = "cityAddressHelp", placeholder = "Enter city" })
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("stateAddress", "State")
-                        @Html.TextBox("stateAddress", null, new { @class = "form-control", ariaDescribedby = "stateAddressHelp", placeholder = "Enter state" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("birth", "Birthdate")
-                        @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", type = "date", placeholder = "Enter date of birth" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        @Html.Label("website", "Website")
-                        @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    @Html.Label("avatar", "Avatar")
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="avatar">
-                            @Html.Label("avatar", "Choose an image", new { @class = "custom-file-label" })
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Lastname)
+                            @Html.TextBoxFor(m => m.Lastname, (string)ViewBag.Contact.Lastname, new { @class = "form-control", ariaDescribedby = "lastNameHelp", placeholder = "Enter last name" })
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="divCustom">
-                @{
-                    foreach (KeyValuePair<string, string> item in ViewBag.Contact.Customs)
-                    {
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    @Html.Label("custom_" + item, "Custom field")
+                <div id="divNumber">
+                    @{
+                        for (int i = 0; i < ViewBag.Contact.Numbers.Count; i++)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    @Html.Label("phone_" + i, "Phone number")
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            @Html.TextBox("custom_" + item, item.Key, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Home</a>
+                                                <a class="dropdown-item" href="#">Mobile</a>
+                                                <a class="dropdown-item" href="#">Work</a>
+                                            </div>
                                         </div>
-                                        @Html.TextBox("custom_" + item, item.Value, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                                        @Html.TextBox("phone_" + i, (string)ViewBag.Contact.Numbers[i].Number, new { @class = "form-control", ariaDescribedby = "phoneHelp", placeholder = "Enter phone number" })
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-primary float-right" onClick="createCustom()">Add custom field</button>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        @Html.CheckBox("shared")
-                        @Html.Label("shared", "Shared contact")
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary float-right" onClick="createNumber()">Add number</button>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-success">Save</button>
+                <div id="divEmail">
+                    @{
+                        for (int i = 0; i < ViewBag.Contact.Emails.Count; i++)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    @Html.Label("email", "Email address")
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Personal</a>
+                                                <a class="dropdown-item" href="#">Work</a>
+                                            </div>
+                                        </div>
+                                        @Html.TextBox("email", (string)ViewBag.Contact.Emails[i].Number, new { @class = "form-control", ariaDescribedby = "emailHelp", placeholder = "Enter email address" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
-                <div class="col">
-                    <button class="btn btn-light" onclick="autofill()">Autofill</button>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary float-right" onClick="createEmail()">Add e-mail</button>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.Label("streetAddress", "Street address")
+                            @Html.TextBox("streetAddress", (string)ViewBag.Contact.Address, new { @class = "form-control", ariaDescribedby = "streetAddressHelp", placeholder = "Enter street address" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.Label("cityAddress", "City")
+                            @Html.TextBox("cityAddress", null, new { @class = "form-control", ariaDescribedby = "cityAddressHelp", placeholder = "Enter city" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.Label("stateAddress", "State")
+                            @Html.TextBox("stateAddress", null, new { @class = "form-control", ariaDescribedby = "stateAddressHelp", placeholder = "Enter state" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.Label("birth", "Birthdate")
+                            @Html.TextBox("birth", null, new { @class = "form-control", ariaDescribedby = "birthHelp", type = "date", placeholder = "Enter date of birth" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.Label("website", "Website")
+                            @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        @Html.Label("avatar", "Avatar")
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="avatar">
+                                @Html.Label("avatar", "Choose an image", new { @class = "custom-file-label" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="divCustom">
+                    @{
+                        foreach (KeyValuePair<string, string> item in ViewBag.Contact.Customs)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.Label("custom_" + item, "Custom field")
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                @Html.TextBox("custom_" + item, item.Key, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
+                                            </div>
+                                            @Html.TextBox("custom_" + item, item.Value, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary float-right" onClick="createCustom()">Add custom field</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            @Html.CheckBox("shared")
+                            @Html.Label("shared", "Shared contact")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-success">Save</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-light" onclick="autofill()">Autofill</button>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

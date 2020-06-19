@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Microsoft.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace address_book_ggs_training.Entities
 {
-    public class InMemoryDB
+    public class InMemoryDB : IDisposable
     {
         private List<Contact> contacts;
+        private bool disposedValue;
 
         public InMemoryDB()
         {
             contacts = new List<Contact>();
+        }
+
+        public static InMemoryDB Create()
+        {
+            return new InMemoryDB();
         }
 
         public Contact AddContact(Contact contact)
@@ -58,6 +65,35 @@ namespace address_book_ggs_training.Entities
             contactToUpdate.WebSite = newContact.WebSite;
 
             return contactToUpdate;
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects)
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~InMemoryDB()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
