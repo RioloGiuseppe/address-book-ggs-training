@@ -8,6 +8,20 @@ namespace address_book_ggs_training.Entities
 {
     public class InMemoryDB : IDisposable
     {
+        private static InMemoryDB instance = null;
+
+        public static InMemoryDB Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new InMemoryDB();
+                }
+                return instance;
+            }
+        }
+
         private List<Contact> contacts;
         private bool disposedValue;
 
@@ -18,12 +32,12 @@ namespace address_book_ggs_training.Entities
 
         public static InMemoryDB Create()
         {
-            return new InMemoryDB();
+            return Instance; // new InMemoryDB();
         }
 
         public Contact AddContact(Contact contact)
         {
-            contact.Id = contacts.Max(o => o.Id) + 1;
+            contact.Id = contacts.Count > 0 ? contacts.Max(o => o.Id) + 1 : 1;
             contacts.Add(contact);
             return contact;
         }
