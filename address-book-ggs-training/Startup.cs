@@ -11,7 +11,9 @@ namespace address_book_ggs_training
         {
             ConfigureAuth(app);
 
-            app.CreatePerOwinContext(InMemoryDB.Create);
+            //app.CreatePerOwinContext(() => new InMemoryDB());
+            app.CreatePerOwinContext(InMemoryDB.CreateSingleton);
+            app.CreatePerOwinContext<StoreDB>(StoreDB.Create);
         }
     }
 }

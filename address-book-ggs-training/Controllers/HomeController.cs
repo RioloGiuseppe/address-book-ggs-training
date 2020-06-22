@@ -15,12 +15,9 @@ namespace address_book_ggs_training.Controllers
 
         public HomeController()
         {
-            
+
         }
-        //public HomeController(InMemoryDB inMemoryDB)
-        //{
-        //    _inMemoryDB = inMemoryDB;
-        //}
+
         public InMemoryDB InMemoryDB
         {
             get
@@ -33,43 +30,24 @@ namespace address_book_ggs_training.Controllers
             }
         }
 
+        protected StoreDB _storeDB;
+
+        public StoreDB StoreDB
+        {
+            get
+            {
+                return _storeDB ?? HttpContext.GetOwinContext().Get<StoreDB>();
+            }
+            private set
+            {
+                _storeDB = value;
+            }
+        } 
+
+
         public ActionResult Index()
         {
-            InMemoryDB.AddContact(new Contact()
-            {
-                Address = "Via...",
-                Name = "Pippo",
-                Lastname = "Topolino",
-                Avatar = "",
-                BirthDay = DateTime.Now.AddDays(-5045),
-                Id = 1,
-                WebSite = "test.com",
-
-                Numbers = new List<ITypedId>()
-                {
-                    new TelephoneNumber("Home", "+39 051 552 888"),
-                    new TelephoneNumber("Work", "+39 051 888 225")
-                },
-                Emails = new List<ITypedId>()
-                {
-                    new EmailAddress("Home", "home@email.it"),
-                    new EmailAddress("Work", "work@email.it")
-                },
-                Customs = new Dictionary<string, string>()
-                {
-                    { "Note", "Bla bla bla"}
-                }
-            });
-
             ViewBag.Contacts = InMemoryDB.GetContactsShort();
-            //ViewBag.Contacts = new List<ContactShort>()
-            //{
-            //    new ContactShort(1, "Carlo", "Verdone"),
-            //    new ContactShort(2, "Giovanni", "Rossi"),
-            //    new ContactShort(3, "Maria", "Chiara"),
-            //    new ContactShort(4, "Giuia", "Rossi")
-            //};
-
             ViewBag.Contact = new Contact()
             {
                 Address = "Via...",
@@ -117,16 +95,14 @@ namespace address_book_ggs_training.Controllers
         [AllowAnonymous]
         public ActionResult Save(ContactViewModel model)
         {
-            ViewBag.Contacts = InMemoryDB.GetContactsShort();
-            ViewBag.Contact = new Contact()
+            Contact newContact = new Contact()
             {
-                Address = "Via...",
-                Name = "Pippo",
-                Lastname = "Topolino",
+                Address = model.Address,
+                Name = model.Name,
+                Lastname = model.Lastname,
                 Avatar = "",
-                BirthDay = DateTime.Now.AddDays(-5045),
-                Id = 1,
-                WebSite = "test.com",
+                BirthDay = model.BirthDay,
+                WebSite = model.WebSite,
 
                 Numbers = new List<ITypedId>()
                 {
@@ -144,7 +120,12 @@ namespace address_book_ggs_training.Controllers
                 }
             };
 
-            return View("index");
+            InMemoryDB.AddContact(newContact);
+
+            ViewBag.Contact = newContact;
+            ViewBag.Contacts = InMemoryDB.GetContactsShort();
+
+            return Redirect("index");
         }
 
     }

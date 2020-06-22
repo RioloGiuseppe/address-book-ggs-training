@@ -20,7 +20,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressSSLPort>44358</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -191,9 +191,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\DB.cs" />
+    <Compile Include="Entities\IContactsManager.cs" />
+    <Compile Include="Entities\InMemoryDB.cs" />
     <Compile Include="Entities\EmailAddress.cs" />
     <Compile Include="Entities\ITypedId.cs" />
+    <Compile Include="Entities\StoreDB.cs" />
     <Compile Include="Entities\TelephoneNumber.cs" />
     <Compile Include="Extension\LinqExplain.cs" />
     <Compile Include="Global.asax.cs">
