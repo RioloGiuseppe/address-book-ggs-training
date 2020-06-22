@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using address_book_ggs_training.Entities;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(address_book_ggs_training.Startup))]
