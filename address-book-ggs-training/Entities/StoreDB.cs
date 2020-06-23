@@ -43,7 +43,7 @@ namespace address_book_ggs_training.Entities
             {
                 return Contacts.OrderBy(o => o.Id).Skip(skip).ToList();
             }
-            return Contacts.Skip(skip).Take(take.Value).ToList();
+            return Contacts.OrderBy(o => o.Id).Skip(skip).Take(take.Value).ToList();
         }
 
         public List<ContactShort> GetContactsShort(int skip = 0, int? take = null)
