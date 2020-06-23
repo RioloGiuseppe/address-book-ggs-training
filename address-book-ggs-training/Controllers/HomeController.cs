@@ -16,7 +16,7 @@ namespace address_book_ggs_training.Controllers
 
         }
 
-        private InMemoryDB _inMemoryDB;
+        protected InMemoryDB _inMemoryDB;
 
         public InMemoryDB InMemoryDB
         {

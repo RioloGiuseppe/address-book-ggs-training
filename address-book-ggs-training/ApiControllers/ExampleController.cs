@@ -8,7 +8,7 @@ using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Results;
 
-namespace address_book_ggs_training.Controllers
+namespace address_book_ggs_training.ApiControllers
 {
     public class ExampleController : ApiController
     {
@@ -23,7 +23,7 @@ namespace address_book_ggs_training.Controllers
         }
 
         [HttpGet]
-        public JsonResult<Contact> SimpleGet(int id)
+        public JsonResult<Contact> SimpleGet2(int id)
         {
             var a = new Contact()
             {
@@ -44,7 +44,7 @@ namespace address_book_ggs_training.Controllers
         }
 
         [HttpPost]
-        public JsonResult<Contact> SimplePost(string nonloso, [FromBody] object o)
+        public JsonResult<Contact> SimplePost2(string nonloso, [FromBody] object o)
         {
             var a = new Contact()
             {
