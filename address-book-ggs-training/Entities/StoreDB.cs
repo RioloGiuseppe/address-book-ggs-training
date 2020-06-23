@@ -86,12 +86,7 @@ namespace address_book_ggs_training.Entities
             {
                 if (disposing)
                 {
-                    foreach (Contact contact in Contacts)
-                    {
-                        Contacts.Remove(contact);
-                    }
-                    _context.SaveChanges();
-                    disposedValue = true;
+                    _context.Dispose();
                 }
                 disposedValue = true;
             }
