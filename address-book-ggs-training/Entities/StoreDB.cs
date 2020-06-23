@@ -39,9 +39,9 @@ namespace address_book_ggs_training.Entities
         {
             if (take == null)
             {
-                return Contacts.Skip(skip).ToList();
+                return Contacts.OrderByDescending(x => x.Id).Skip(skip).ToList();
             }
-            return Contacts.Skip(skip).Take(take.Value).ToList();
+            return Contacts.OrderByDescending(x => x.Id).Skip(skip).Take(take.Value).ToList();
         }
 
         public List<ContactShort> GetContactsShort(int skip = 0, int? take = null)
