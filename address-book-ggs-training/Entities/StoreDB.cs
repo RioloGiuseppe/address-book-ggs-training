@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Microsoft.Ajax.Utilities;
 
 namespace address_book_ggs_training.Entities
 {
-    public class StoreDB : IDisposable
+    public class StoreDB : IDisposable, IContactsManager
     {
         private bool disposedValue;
         protected ApplicationDbContext _context;
@@ -30,6 +31,7 @@ namespace address_book_ggs_training.Entities
         {
             contact.Id = Contacts.Count() > 0 ? Contacts.Max(o => o.Id) + 1 : 1;
             Contacts.Add(contact);
+            _context.SaveChanges();
             return contact;
         }
 
@@ -47,9 +49,11 @@ namespace address_book_ggs_training.Entities
             return GetContacts(skip, take).Select(o => new ContactShort(o)).ToList();
         }
 
-        public void RemoveContact(Contact contact)
+        public bool RemoveContact(int id)
         {
-            Contacts.Remove(contact);
+            Contacts.Remove(Contacts.FirstOrDefault(m => m.Id == id));
+            _context.SaveChanges();
+            return true;
         }
 
         public Contact UpdateContact(int id, Contact newContact)
@@ -68,21 +72,20 @@ namespace address_book_ggs_training.Entities
             contactToUpdate.Shared = newContact.Shared;
             contactToUpdate.WebSite = newContact.WebSite;
 
+            _context.SaveChanges();
+
             return contactToUpdate;
         }
 
         #region Dispose
-            protected virtual void Dispose(bool disposing)
+
+        protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
             {
                 if (disposing)
                 {
-                    foreach (Contact contact in Contacts)
-                    {
-                        Contacts.Remove(contact);
-                    }
-                    disposedValue = true;
+                    // TODO: dispose managed state (managed objects)
                 }
                 disposedValue = true;
             }

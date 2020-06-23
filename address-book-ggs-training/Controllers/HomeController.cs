@@ -70,7 +70,7 @@ namespace address_book_ggs_training.Controllers
                 },
                 Customs = new Dictionary<string, string>()
                 {
-                    { "Note", "Bla bla bla"}
+                    { "Note", "Bla bla bla" }
                 }
             };
 
@@ -116,7 +116,7 @@ namespace address_book_ggs_training.Controllers
                 },
                 Customs = new Dictionary<string, string>()
                 {
-                    { "Note", "Bla bla bla"}
+                    { "Note", "Bla bla bla" }
                 }
             };
 
@@ -127,6 +127,5 @@ namespace address_book_ggs_training.Controllers
 
             return Redirect("index");
         }
-
     }
 }
