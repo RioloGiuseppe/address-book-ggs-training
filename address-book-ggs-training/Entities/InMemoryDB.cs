@@ -103,5 +103,10 @@ namespace address_book_ggs_training.Entities
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        public Contact GetContactById(int id)
+        {
+            return contacts.FirstOrDefault(o => o.Id == id);
+        }
     }
 }

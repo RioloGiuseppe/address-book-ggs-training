@@ -46,6 +46,11 @@ namespace address_book_ggs_training.Entities
             return Contacts.OrderBy(o => o.Id).Skip(skip).Take(take.Value).ToList();
         }
 
+        public Contact GetContactById(int id)
+        {
+            return Contacts.FirstOrDefault(o => o.Id == id);
+        }
+
         public List<ContactShort> GetContactsShort(int skip = 0, int? take = null)
         {
             return GetContacts(skip, take).Select(o => new ContactShort(o)).ToList();
