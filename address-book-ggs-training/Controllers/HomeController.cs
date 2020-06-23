@@ -11,12 +11,12 @@ namespace address_book_ggs_training.Controllers
 {
     public class HomeController : Controller
     {
-        private InMemoryDB _inMemoryDB;
-
         public HomeController()
         {
 
         }
+
+        private InMemoryDB _inMemoryDB;
 
         public InMemoryDB InMemoryDB
         {
@@ -42,12 +42,12 @@ namespace address_book_ggs_training.Controllers
             {
                 _storeDB = value;
             }
-        } 
+        }
 
 
         public ActionResult Index()
         {
-            ViewBag.Contacts = InMemoryDB.GetContactsShort();
+            ViewBag.Contacts = StoreDB.GetContactsShort();
             ViewBag.Contact = new Contact()
             {
                 Address = "Via...",
@@ -120,10 +120,10 @@ namespace address_book_ggs_training.Controllers
                 }
             };
 
-            InMemoryDB.AddContact(newContact);
+            StoreDB.AddContact(newContact);
 
             ViewBag.Contact = newContact;
-            ViewBag.Contacts = InMemoryDB.GetContactsShort();
+            ViewBag.Contacts = StoreDB.GetContactsShort();
 
             return Redirect("index");
         }
