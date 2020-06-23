@@ -9,6 +9,7 @@ using System.Data.Entity;
 using Microsoft.Ajax.Utilities;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace address_book_ggs_training.Entities
 {
@@ -28,6 +29,8 @@ namespace address_book_ggs_training.Entities
         {
             _context = context.Get<ApplicationDbContext>();
         }
+
+        #region Sync
 
         public Contact AddContact(Contact contact)
         {
@@ -84,7 +87,47 @@ namespace address_book_ggs_training.Entities
             return contactToUpdate;
         }
 
+        #endregion
+
+        #region Async
+
+        public async Task<Contact> AddContactAsync(Contact contact)
+        {
+            contact.Id = Contacts.Count() > 0 ? Contacts.Max(o => o.Id) + 1 : 1;
+            Contacts.Add(contact);
+            await _context.SaveChangesAsync();
+            return contact;
+        }
+
+        public Task<List<Contact>> GetContactsAsync(int skip = 0, int? take = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> RemoveContactAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Contact> GetContactByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Contact> UpdateContactAsync(int id, Contact newContact)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
         #region Dispose
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)

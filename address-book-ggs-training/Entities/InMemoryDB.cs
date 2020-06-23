@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace address_book_ggs_training.Entities
@@ -39,6 +40,8 @@ namespace address_book_ggs_training.Entities
         {
             return Instance;
         }
+
+        #region Sync
 
         public Contact AddContact(Contact contact)
         {
@@ -86,6 +89,52 @@ namespace address_book_ggs_training.Entities
             return contactToUpdate;
         }
 
+        public Contact GetContactById(int id)
+        {
+            return contacts.FirstOrDefault(o => o.Id == id);
+        }
+
+        #endregion
+
+        #region Async
+
+        public Task<Contact> AddContactAsync(Contact contact)
+        {
+            return Task<Contact>.Factory.StartNew(() =>
+            {
+                return AddContact(contact);
+            });
+        }
+
+        public Task<List<Contact>> GetContactsAsync(int skip = 0, int? take = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> RemoveContactAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Contact> GetContactByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Contact> UpdateContactAsync(int id, Contact newContact)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Dispose
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -104,9 +153,6 @@ namespace address_book_ggs_training.Entities
             GC.SuppressFinalize(this);
         }
 
-        public Contact GetContactById(int id)
-        {
-            return contacts.FirstOrDefault(o => o.Id == id);
-        }
+        #endregion
     }
 }

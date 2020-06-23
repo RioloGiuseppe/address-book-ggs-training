@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 
@@ -56,11 +57,12 @@ namespace address_book_ggs_training.ApiControllers
 
         // POST: api/Contacts
         [HttpPost]
-        public Contact Create([FromBody] Contact value)
+        public async Task<Contact> Create([FromBody] Contact value)
         {
             try
             {
-                return StoreDB.AddContact(value);
+                var ret = await StoreDB.AddContactAsync(value);
+                return ret;
             }
             catch (Exception e)
             {
