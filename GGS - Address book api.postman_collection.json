@@ -6,6 +6,107 @@
 	},
 	"item": [
 		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44379/api/contacts/list",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44379",
+							"path": [
+								"api",
+								"contacts",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44379/api/contacts/get/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44379",
+							"path": [
+								"api",
+								"contacts",
+								"get",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pippo 2\",\r\n  \"lastname\": \"Pluto\",\r\n  \"address\": \"Via Fasulla 123\",\r\n  \"avatar\": null,\r\n  \"birthDay\": \"2019-02-01T00:00:00\",\r\n  \"webSite\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44379/api/contacts/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44379",
+							"path": [
+								"api",
+								"contacts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44379/api/contacts/delete/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44379",
+							"path": [
+								"api",
+								"contacts",
+								"delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Simple get",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
