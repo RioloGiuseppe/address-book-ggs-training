@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using Microsoft.Ajax.Utilities;
+using System.Data.Entity.Core.Common.CommandTrees;
+using System.Linq.Expressions;
 
 namespace address_book_ggs_training.Entities
 {
@@ -39,7 +41,7 @@ namespace address_book_ggs_training.Entities
         {
             if (take == null)
             {
-                return Contacts.Skip(skip).ToList();
+                return Contacts.OrderBy(o => o.Id).Skip(skip).ToList();
             }
             return Contacts.Skip(skip).Take(take.Value).ToList();
         }
