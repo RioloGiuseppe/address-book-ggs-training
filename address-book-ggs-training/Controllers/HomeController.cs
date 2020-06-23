@@ -101,7 +101,7 @@ namespace address_book_ggs_training.Controllers
                 Name = model.Name,
                 Lastname = model.Lastname,
                 Avatar = "",
-                BirthDay = DateTime.Now,
+                BirthDay = DateTime.Now.AddDays(-5045),
                 WebSite = model.WebSite,
 
                 Numbers = new List<ITypedId>()
