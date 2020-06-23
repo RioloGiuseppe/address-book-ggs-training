@@ -78,14 +78,18 @@ namespace address_book_ggs_training.Entities
         }
 
         #region Dispose
-
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
+                    foreach (Contact contact in Contacts)
+                    {
+                        Contacts.Remove(contact);
+                    }
+                    _context.SaveChanges();
+                    disposedValue = true;
                 }
                 disposedValue = true;
             }
