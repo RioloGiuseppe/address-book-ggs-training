@@ -133,8 +133,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            @Html.Label("website", "Website")
-                            @Html.TextBox("website", null, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
+                            @Html.LabelFor(m => m.WebSite)
+                            @Html.TextBoxFor(m => m.WebSite, (string)ViewBag.Contact.WebSite, new { @class = "form-control", ariaDescribedby = "websiteHelp", placeholder = "Enter website" })
                         </div>
                     </div>
                 </div>
@@ -276,7 +276,6 @@
         $("#name").val(generateRandomName());
         $("#lastName").val(generateRandomLastName());
         $('input', $('#divNumber')).each(function () {
-
             $(this).val(generateRandomPhoneNumber());
         });
         $("#email").val(generateRandomMailAddress());
@@ -462,5 +461,4 @@
 
         return [year, month, day].join('-');
     }
-
 </script>
