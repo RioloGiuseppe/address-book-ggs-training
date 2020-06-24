@@ -1,0 +1,3 @@
+Enable-Migrations => abilita le migrazioni
+Add-Migration [name] => crea una migrazione
+Update-Database => applica tutte le migrazioni in sospeso al db
