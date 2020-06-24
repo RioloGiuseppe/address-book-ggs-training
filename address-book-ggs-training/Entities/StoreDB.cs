@@ -99,29 +99,52 @@ namespace address_book_ggs_training.Entities
             return contact;
         }
 
-        public Task<List<Contact>> GetContactsAsync(int skip = 0, int? take = null)
+        public async Task<List<Contact>> GetContactsAsync(int skip = 0, int? take = null)
         {
-            throw new NotImplementedException();
+            if (take == null)
+            {
+                return await Contacts.OrderBy(o => o.Id).Skip(skip).ToListAsync();
+            }
+            return await Contacts.OrderBy(o => o.Id).Skip(skip).Take(take.Value).ToListAsync();
         }
 
-        public Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
+        //public async Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
+        //{
+        //    var contacts = GetContactsAsync(skip, take).Result;
+        //    return await contacts.Select(o => new ContactShort(o)).ToListAsync();
+        //}
+
+        public async Task<bool> RemoveContactAsync(int id)
         {
-            throw new NotImplementedException();
+            Contacts.Remove(Contacts.FirstOrDefault(m => m.Id == id));
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> RemoveContactAsync(int id)
+        public async Task<Contact> GetContactByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await Contacts.FirstOrDefaultAsync(o => o.Id == id);
         }
 
-        public Task<Contact> GetContactByIdAsync(int id)
+        public async Task<Contact> UpdateContactAsync(int id, Contact newContact)
         {
-            throw new NotImplementedException();
-        }
+            var contactToUpdate = Contacts.FirstOrDefault(x => x.Id == id);
+            if (contactToUpdate == null) return null;
 
-        public Task<Contact> UpdateContactAsync(int id, Contact newContact)
-        {
-            throw new NotImplementedException();
+            contactToUpdate.Address = newContact.Address;
+            contactToUpdate.Avatar = newContact.Avatar;
+            contactToUpdate.BirthDay = newContact.BirthDay;
+            contactToUpdate.Customs = newContact.Customs;
+            contactToUpdate.Emails = newContact.Emails;
+            contactToUpdate.Lastname = newContact.Lastname;
+            contactToUpdate.Name = newContact.Name;
+            contactToUpdate.Numbers = newContact.Numbers;
+            contactToUpdate.Shared = newContact.Shared;
+            contactToUpdate.WebSite = newContact.WebSite;
+
+            await _context.SaveChangesAsync();
+
+            return contactToUpdate;
         }
 
         #endregion

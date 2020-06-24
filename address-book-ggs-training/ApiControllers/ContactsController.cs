@@ -72,11 +72,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // PUT: api/Contacts/5
         [HttpPut]
-        public Contact Update(int id, [FromBody] Contact value)
+        public async Task<Contact> UpdateAsync(int id, [FromBody] Contact value)
         {
             try
             {
-                return StoreDB.UpdateContact(id, value);
+                return await StoreDB.UpdateContactAsync(id, value);
             }
             catch (Exception)
             {
@@ -86,11 +86,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // DELETE: api/Contacts/5
         [HttpDelete]
-        public bool Delete(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             try
             {
-                return StoreDB.RemoveContact(id);
+                return await StoreDB.RemoveContactAsync(id);
             }
             catch (Exception)
             {
