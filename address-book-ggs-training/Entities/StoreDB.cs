@@ -108,11 +108,11 @@ namespace address_book_ggs_training.Entities
             return await Contacts.OrderBy(o => o.Id).Skip(skip).Take(take.Value).ToListAsync();
         }
 
-        //public async Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
-        //{
-        //    var contacts = GetContactsAsync(skip, take).Result;
-        //    return await contacts.Select(o => new ContactShort(o)).ToListAsync();
-        //}
+        public async Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
+        {
+            var contacts = GetContactsAsync(skip, take).Result;
+            return await Task.FromResult(contacts.Select(o => new ContactShort(o)).ToList());
+        }
 
         public async Task<bool> RemoveContactAsync(int id)
         {

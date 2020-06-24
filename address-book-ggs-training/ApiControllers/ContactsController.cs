@@ -29,11 +29,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // GET: api/Contacts
         [HttpGet]
-        public IEnumerable<ContactShort> List()
+        public async Task<IEnumerable<ContactShort>> List()
         {
             try
             {
-                return StoreDB.GetContactsShort();
+                return await StoreDB.GetContactsShortAsync();
             }
             catch (Exception e)
             {
@@ -43,11 +43,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // GET: api/Contacts/5
         [HttpGet]
-        public Contact Get(int id)
+        public async Task<Contact> Get(int id)
         {
             try
             {
-                return StoreDB.GetContactById(id);
+                return await StoreDB.GetContactByIdAsync(id);
             }
             catch (Exception)
             {
@@ -72,7 +72,7 @@ namespace address_book_ggs_training.ApiControllers
 
         // PUT: api/Contacts/5
         [HttpPut]
-        public async Task<Contact> UpdateAsync(int id, [FromBody] Contact value)
+        public async Task<Contact> Update(int id, [FromBody] Contact value)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace address_book_ggs_training.ApiControllers
 
         // DELETE: api/Contacts/5
         [HttpDelete]
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
