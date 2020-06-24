@@ -1,20 +1,19 @@
 ﻿using address_book_ggs_training.Entities;
-using Antlr.Runtime.Tree;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 
 namespace address_book_ggs_training.ApiControllers
 {
     public class ContactsController : ApiController
     {
         protected StoreDB _storeDB;
+
+        protected InMemoryDB _inMemoryDB;
+
         public StoreDB StoreDB
         {
             get
@@ -27,15 +26,27 @@ namespace address_book_ggs_training.ApiControllers
             }
         }
 
+        public InMemoryDB InMemoryDB
+        {
+            get
+            {
+                return _inMemoryDB ?? Request.GetOwinContext().Get<InMemoryDB>();
+            }
+            private set
+            {
+                _inMemoryDB = value;
+            }
+        }
+
         // GET: api/Contacts
         [HttpGet]
-        public IEnumerable<ContactShort> List()
+        public async Task<IEnumerable<ContactShort>> List()
         {
             try
             {
-                return StoreDB.GetContactsShort();
+                return await StoreDB.GetContactsShortAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -43,11 +54,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // GET: api/Contacts/5
         [HttpGet]
-        public Contact Get(int id)
+        public async Task<Contact> Get(int id)
         {
             try
             {
-                return StoreDB.GetContactById(id);
+                return await StoreDB.GetContactByIdAsync(id);
             }
             catch (Exception)
             {
@@ -72,11 +83,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // PUT: api/Contacts/5
         [HttpPut]
-        public Contact Update(int id, [FromBody] Contact value)
+        public async Task<Contact> Update(int id, [FromBody] Contact value)
         {
             try
             {
-                return StoreDB.UpdateContact(id, value);
+                return await StoreDB.UpdateContactAsync(id, value);
             }
             catch (Exception)
             {
@@ -86,11 +97,11 @@ namespace address_book_ggs_training.ApiControllers
 
         // DELETE: api/Contacts/5
         [HttpDelete]
-        public bool Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                return StoreDB.RemoveContact(id);
+                return await StoreDB.RemoveContactAsync(id);
             }
             catch (Exception)
             {
