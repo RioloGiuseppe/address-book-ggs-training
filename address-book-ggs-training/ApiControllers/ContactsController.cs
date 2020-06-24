@@ -35,7 +35,7 @@ namespace address_book_ggs_training.ApiControllers
             {
                 return await StoreDB.GetContactsShortAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

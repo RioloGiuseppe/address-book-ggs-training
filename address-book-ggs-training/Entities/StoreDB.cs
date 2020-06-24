@@ -110,13 +110,14 @@ namespace address_book_ggs_training.Entities
 
         public async Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
         {
-            var contacts = GetContactsAsync(skip, take).Result;
-            return await Task.FromResult(contacts.Select(o => new ContactShort(o)).ToList());
+            var contacts = await GetContactsAsync(skip, take);
+            return contacts.Select(o => new ContactShort(o)).ToList();
         }
 
         public async Task<bool> RemoveContactAsync(int id)
         {
-            Contacts.Remove(Contacts.FirstOrDefault(m => m.Id == id));
+            var contactToRemove = Contacts.FirstOrDefault(m => m.Id == id);
+            Contacts.Remove(contactToRemove);
             await _context.SaveChangesAsync();
             return true;
         }
