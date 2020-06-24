@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\Container.cs" />
     <Compile Include="Entities\IContactsManager.cs" />
     <Compile Include="Entities\InMemoryDB.cs" />
     <Compile Include="Entities\EmailAddress.cs" />
@@ -223,6 +224,14 @@
     <Compile Include="Migrations\202006241536029_Rm-Prova.cs" />
     <Compile Include="Migrations\202006241536029_Rm-Prova.designer.cs">
       <DependentUpon>202006241536029_Rm-Prova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241601483_Add-Containers.cs" />
+    <Compile Include="Migrations\202006241601483_Add-Containers.designer.cs">
+      <DependentUpon>202006241601483_Add-Containers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241607462_Rm-UserId.cs" />
+    <Compile Include="Migrations\202006241607462_Rm-UserId.designer.cs">
+      <DependentUpon>202006241607462_Rm-UserId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -415,6 +424,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006241536029_Rm-Prova.resx">
       <DependentUpon>202006241536029_Rm-Prova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241601483_Add-Containers.resx">
+      <DependentUpon>202006241601483_Add-Containers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241607462_Rm-UserId.resx">
+      <DependentUpon>202006241607462_Rm-UserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
