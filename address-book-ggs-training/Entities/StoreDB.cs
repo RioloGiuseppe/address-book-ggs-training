@@ -112,7 +112,7 @@ namespace address_book_ggs_training.Entities
 
         public async Task<bool> RemoveContactAsync(int id)
         {
-            var contactToRemove = Contacts.FirstOrDefault(m => m.Id == id);
+            var contactToRemove = await Contacts.FirstOrDefaultAsync(m => m.Id == id);
             Contacts.Remove(contactToRemove);
             await _context.SaveChangesAsync();
             return true;
@@ -125,7 +125,7 @@ namespace address_book_ggs_training.Entities
 
         public async Task<Contact> UpdateContactAsync(int id, Contact newContact)
         {
-            var contactToUpdate = Contacts.FirstOrDefault(x => x.Id == id);
+            var contactToUpdate = await Contacts.FirstOrDefaultAsync(x => x.Id == id);
             if (contactToUpdate == null) return null;
 
             contactToUpdate.Address = newContact.Address;
