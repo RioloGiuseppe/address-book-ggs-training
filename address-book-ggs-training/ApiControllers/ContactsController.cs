@@ -1,20 +1,19 @@
 ﻿using address_book_ggs_training.Entities;
-using Antlr.Runtime.Tree;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 
 namespace address_book_ggs_training.ApiControllers
 {
     public class ContactsController : ApiController
     {
         protected StoreDB _storeDB;
+
+        protected InMemoryDB _inMemoryDB;
+
         public StoreDB StoreDB
         {
             get
@@ -24,6 +23,18 @@ namespace address_book_ggs_training.ApiControllers
             private set
             {
                 _storeDB = value;
+            }
+        }
+
+        public InMemoryDB InMemoryDB
+        {
+            get
+            {
+                return _inMemoryDB ?? Request.GetOwinContext().Get<InMemoryDB>();
+            }
+            private set
+            {
+                _inMemoryDB = value;
             }
         }
 

@@ -1,9 +1,7 @@
-﻿using Microsoft.Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace address_book_ggs_training.Entities
 {
@@ -53,7 +51,7 @@ namespace address_book_ggs_training.Entities
         public bool RemoveContact(int id)
         {
             int rm = contacts.RemoveAll(x => x.Id == id);
-            return rm > 1;
+            return rm >= 1;
         }
 
         public List<Contact> GetContacts(int skip = 0, int? take = null)
@@ -108,27 +106,42 @@ namespace address_book_ggs_training.Entities
 
         public Task<List<Contact>> GetContactsAsync(int skip = 0, int? take = null)
         {
-            throw new NotImplementedException();
+            return Task<List<Contact>>.Factory.StartNew(() =>
+            {
+                return GetContacts(skip, take);
+            });
         }
 
         public Task<List<ContactShort>> GetContactsShortAsync(int skip = 0, int? take = null)
         {
-            throw new NotImplementedException();
+            return Task<List<ContactShort>>.Factory.StartNew(() =>
+            {
+                return GetContactsShort(skip, take);
+            });
         }
 
         public Task<bool> RemoveContactAsync(int id)
         {
-            throw new NotImplementedException();
+            return Task<bool>.Factory.StartNew(() =>
+            {
+                return RemoveContact(id);
+            });
         }
 
         public Task<Contact> GetContactByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return Task<Contact>.Factory.StartNew(() =>
+            {
+                return GetContactById(id);
+            });
         }
 
         public Task<Contact> UpdateContactAsync(int id, Contact newContact)
         {
-            throw new NotImplementedException();
+            return Task<Contact>.Factory.StartNew(() =>
+            {
+                return UpdateContact(id, newContact);
+            });
         }
 
         #endregion
