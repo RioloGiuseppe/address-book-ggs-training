@@ -9,6 +9,12 @@ namespace address_book_ggs_training.Entities
 {
     public class TelephoneNumber : ITypedId
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int ContactId { get; set; }
+        public string Number { get; set; }
+        public string Type { get; set; }
+
         public TelephoneNumber()
         {
         }
@@ -18,10 +24,9 @@ namespace address_book_ggs_training.Entities
             Number = number;
             Type = type;
         }
+           
+        // Navigtion props
+        public Contact Contact { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Number { get; set; }
-        public string Type { get; set; }
     }
 }

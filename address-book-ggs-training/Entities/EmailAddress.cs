@@ -8,6 +8,12 @@ namespace address_book_ggs_training.Entities
 {
     public class EmailAddress : ITypedId
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Type { get; set; }
+        public int ContactId { get; set; }
+
         public EmailAddress()
         {
         }
@@ -18,10 +24,6 @@ namespace address_book_ggs_training.Entities
             Type = type;
         }
 
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Type { get; set; }
+        public Contact Contact { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using address_book_ggs_training.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,11 +9,13 @@ namespace address_book_ggs_training.Entities
 {
     public class Container
     {
-        public virtual ICollection<Contact> Contacts { get; }
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string UserId { get; set; }
+
+        public ApplicationUser User { get; set; }
+        public virtual ICollection<Contact> Contacts { get; set; }
     }
 }

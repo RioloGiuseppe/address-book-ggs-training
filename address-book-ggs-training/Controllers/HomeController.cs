@@ -89,7 +89,7 @@ namespace address_book_ggs_training.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Save(ContactViewModel model)
+        public ActionResult Save(CreateContactViewModel model)
         {
             Contact newContact = new Contact()
             {

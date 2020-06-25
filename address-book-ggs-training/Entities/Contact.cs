@@ -12,6 +12,7 @@ namespace address_book_ggs_training.Entities
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int ContainerId { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
         public string Address { get; set; }
@@ -19,6 +20,8 @@ namespace address_book_ggs_training.Entities
         public DateTime BirthDay { get; set; }
         public string WebSite { get; set; }
         public bool Shared { get; set; }
+
+        public Container Container { get; set; }
         public ICollection<TelephoneNumber> Numbers { get; set; }
         public ICollection<EmailAddress> Emails { get; set; }
     }
