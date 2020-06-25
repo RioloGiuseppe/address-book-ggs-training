@@ -37,5 +37,9 @@ namespace address_book_ggs_training.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<address_book_ggs_training.Entities.TelephoneNumber> TelephoneNumbers { get; set; }
+
+        public System.Data.Entity.DbSet<address_book_ggs_training.Entities.EmailAddress> EmailAddresses { get; set; }
     }
 }

@@ -200,8 +200,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="ApiControllers\ExampleController.cs" />
     <Compile Include="Controllers\ContainersController.cs" />
+    <Compile Include="Controllers\EmailAddressesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TelephoneNumbersController.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\Container.cs" />
     <Compile Include="Entities\IContactsManager.cs" />
@@ -419,6 +421,16 @@
     <Content Include="Views\Containers\Details.cshtml" />
     <Content Include="Views\Containers\Edit.cshtml" />
     <Content Include="Views\Containers\Index.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Create.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Delete.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Details.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Edit.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Index.cshtml" />
+    <Content Include="Views\EmailAddresses\Create.cshtml" />
+    <Content Include="Views\EmailAddresses\Delete.cshtml" />
+    <Content Include="Views\EmailAddresses\Details.cshtml" />
+    <Content Include="Views\EmailAddresses\Edit.cshtml" />
+    <Content Include="Views\EmailAddresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
