@@ -49,7 +49,7 @@ namespace address_book_ggs_training.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name")] Container container)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description")] Container container)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace address_book_ggs_training.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name")] Container container)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description")] Container container)
         {
             if (ModelState.IsValid)
             {
