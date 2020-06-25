@@ -14,14 +14,14 @@ namespace address_book_ggs_training.Entities
 
         public EmailAddress(string type, string number) : this()
         {
-            Number = number;
+            Email = number;
             Type = type;
         }
 
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Number { get; set; }
+        public string Email { get; set; }
         public string Type { get; set; }
     }
 }

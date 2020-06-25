@@ -2,7 +2,6 @@
 {
     public interface ITypedId
     {
-        string Number { get; set; }
         string Type { get; set; }
     }
 }

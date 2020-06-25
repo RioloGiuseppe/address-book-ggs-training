@@ -87,7 +87,7 @@
                                                 <a class="dropdown-item" href="#">Work</a>
                                             </div>
                                         </div>
-                                        @Html.TextBox("email", (string)ViewBag.Contact.Emails[i].Number, new { @class = "form-control", ariaDescribedby = "emailHelp", placeholder = "Enter email address" })
+                                        @Html.TextBox("email", (string)ViewBag.Contact.Emails[i].Email, new { @class = "form-control", ariaDescribedby = "emailHelp", placeholder = "Enter email address" })
                                     </div>
                                 </div>
                             </div>
@@ -151,26 +151,6 @@
                     </div>
                 </div>
 
-                <div id="divCustom">
-                    @{
-                        foreach (KeyValuePair<string, string> item in ViewBag.Contact.Customs)
-                        {
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        @Html.Label("custom_" + item, "Custom field")
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                @Html.TextBox("custom_" + item, item.Key, new { @class = "form-control", ariaDescribedby = "customTypeHelp", placeholder = "Enter field type" })
-                                            </div>
-                                            @Html.TextBox("custom_" + item, item.Value, new { @class = "form-control", ariaDescribedby = "customValueHelp", placeholder = "Enter field value" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                </div>
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-primary float-right" onClick="createCustom()">Add custom field</button>

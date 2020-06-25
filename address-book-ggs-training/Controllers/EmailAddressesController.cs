@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using address_book_ggs_training.Entities;
 using address_book_ggs_training.Models;
+using address_book_ggs_training.Extension;
 
 namespace address_book_ggs_training.Controllers
 {
@@ -48,7 +49,7 @@ namespace address_book_ggs_training.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Number,Type")] EmailAddress emailAddress)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Email,Type")] EmailAddress emailAddress)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +81,7 @@ namespace address_book_ggs_training.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Number,Type")] EmailAddress emailAddress)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Email,Type")] EmailAddress emailAddress)
         {
             if (ModelState.IsValid)
             {
