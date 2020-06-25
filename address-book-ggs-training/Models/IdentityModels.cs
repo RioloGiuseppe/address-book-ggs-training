@@ -30,16 +30,12 @@ namespace address_book_ggs_training.Models
 
         public virtual IDbSet<Contact> Contacts { get; set; }
         public virtual IDbSet<Container> Containers { get; set; }
-        public virtual IDbSet<EmailAddress> Emails { get; set; }
-        public virtual IDbSet<TelephoneNumber> Numbers { get; set; }
+        public virtual IDbSet<EmailAddress> EmailAddresses { get; set; }
+        public virtual IDbSet<TelephoneNumber> TelephoneNumbers { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<address_book_ggs_training.Entities.TelephoneNumber> TelephoneNumbers { get; set; }
-
-        public System.Data.Entity.DbSet<address_book_ggs_training.Entities.EmailAddress> EmailAddresses { get; set; }
     }
 }

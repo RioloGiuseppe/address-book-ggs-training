@@ -249,6 +249,10 @@
     <Compile Include="Migrations\202006251337017_Add-Numbers-Emails.designer.cs">
       <DependentUpon>202006251337017_Add-Numbers-Emails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006251358098_Change-number-column.cs" />
+    <Compile Include="Migrations\202006251358098_Change-number-column.designer.cs">
+      <DependentUpon>202006251358098_Change-number-column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
@@ -470,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006251337017_Add-Numbers-Emails.resx">
       <DependentUpon>202006251337017_Add-Numbers-Emails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006251358098_Change-number-column.resx">
+      <DependentUpon>202006251358098_Change-number-column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
