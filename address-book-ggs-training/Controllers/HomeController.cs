@@ -58,19 +58,15 @@ namespace address_book_ggs_training.Controllers
                 Id = 1,
                 WebSite = "test.com",
 
-                Numbers = new List<ITypedId>()
+                Numbers = new List<TelephoneNumber>()
                 {
                     new TelephoneNumber("Home", "+39 051 552 888"),
                     new TelephoneNumber("Work", "+39 051 888 225")
                 },
-                Emails = new List<ITypedId>()
+                Emails = new List<EmailAddress>()
                 {
                     new EmailAddress("Home", "home@email.it"),
                     new EmailAddress("Work", "work@email.it")
-                },
-                Customs = new Dictionary<string, string>()
-                {
-                    { "Note", "Bla bla bla" }
                 }
             };
 
@@ -104,19 +100,16 @@ namespace address_book_ggs_training.Controllers
                 BirthDay = DateTime.Now.AddDays(-5045),
                 WebSite = model.WebSite,
 
-                Numbers = new List<ITypedId>()
+
+                Numbers = new List<TelephoneNumber>()
                 {
                     new TelephoneNumber("Home", "+39 051 552 888"),
                     new TelephoneNumber("Work", "+39 051 888 225")
                 },
-                Emails = new List<ITypedId>()
+                Emails = new List<EmailAddress>()
                 {
                     new EmailAddress("Home", "home@email.it"),
                     new EmailAddress("Work", "work@email.it")
-                },
-                Customs = new Dictionary<string, string>()
-                {
-                    { "Note", "Bla bla bla" }
                 }
             };
 

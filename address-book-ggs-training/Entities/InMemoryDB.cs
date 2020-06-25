@@ -76,7 +76,6 @@ namespace address_book_ggs_training.Entities
             contactToUpdate.Address = newContact.Address;
             contactToUpdate.Avatar = newContact.Avatar;
             contactToUpdate.BirthDay = newContact.BirthDay;
-            contactToUpdate.Customs = newContact.Customs;
             contactToUpdate.Emails = newContact.Emails;
             contactToUpdate.Lastname = newContact.Lastname;
             contactToUpdate.Name = newContact.Name;

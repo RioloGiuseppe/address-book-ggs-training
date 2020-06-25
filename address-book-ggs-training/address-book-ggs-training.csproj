@@ -21,12 +21,9 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44358</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -246,6 +243,10 @@
     <Compile Include="Migrations\202006251303305_add-desc-incontainer.designer.cs">
       <DependentUpon>202006251303305_add-desc-incontainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006251337017_Add-Numbers-Emails.cs" />
+    <Compile Include="Migrations\202006251337017_Add-Numbers-Emails.designer.cs">
+      <DependentUpon>202006251337017_Add-Numbers-Emails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
@@ -454,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006251303305_add-desc-incontainer.resx">
       <DependentUpon>202006251303305_add-desc-incontainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006251337017_Add-Numbers-Emails.resx">
+      <DependentUpon>202006251337017_Add-Numbers-Emails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

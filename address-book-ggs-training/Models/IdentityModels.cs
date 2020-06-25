@@ -30,6 +30,8 @@ namespace address_book_ggs_training.Models
 
         public virtual IDbSet<Contact> Contacts { get; set; }
         public virtual IDbSet<Container> Containers { get; set; }
+        public virtual IDbSet<EmailAddress> Emails { get; set; }
+        public virtual IDbSet<TelephoneNumber> Numbers { get; set; }
 
         public static ApplicationDbContext Create()
         {

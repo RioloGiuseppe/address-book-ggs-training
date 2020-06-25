@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace address_book_ggs_training.Entities
 {
     public class Contact
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
@@ -16,16 +19,8 @@ namespace address_book_ggs_training.Entities
         public DateTime BirthDay { get; set; }
         public string WebSite { get; set; }
         public bool Shared { get; set; }
-        public List<ITypedId> Numbers { get; set; }
-        public List<ITypedId> Emails { get; set; }
-        public Dictionary<string, string> Customs { get; set; }
-
-        public Contact()
-        {
-            Numbers = new List<ITypedId>();
-            Emails = new List<ITypedId>();
-            Customs = new Dictionary<string, string>();
-        }
+        public ICollection<TelephoneNumber> Numbers { get; set; }
+        public ICollection<EmailAddress> Emails { get; set; }
     }
 
     public class ContactShort
