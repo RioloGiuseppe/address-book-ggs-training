@@ -437,21 +437,21 @@
     <Content Include="Views\Containers\Details.cshtml" />
     <Content Include="Views\Containers\Edit.cshtml" />
     <Content Include="Views\Containers\Index.cshtml" />
-    <Content Include="Views\TelephoneNumbers\Create.cshtml" />
-    <Content Include="Views\TelephoneNumbers\Delete.cshtml" />
-    <Content Include="Views\TelephoneNumbers\Details.cshtml" />
-    <Content Include="Views\TelephoneNumbers\Edit.cshtml" />
-    <Content Include="Views\TelephoneNumbers\Index.cshtml" />
-    <Content Include="Views\EmailAddresses\Create.cshtml" />
-    <Content Include="Views\EmailAddresses\Delete.cshtml" />
-    <Content Include="Views\EmailAddresses\Details.cshtml" />
-    <Content Include="Views\EmailAddresses\Edit.cshtml" />
-    <Content Include="Views\EmailAddresses\Index.cshtml" />
     <Content Include="Views\Contacts\Create.cshtml" />
     <Content Include="Views\Contacts\Delete.cshtml" />
     <Content Include="Views\Contacts\Details.cshtml" />
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\EmailAddresses\Create.cshtml" />
+    <Content Include="Views\EmailAddresses\Delete.cshtml" />
+    <Content Include="Views\EmailAddresses\Details.cshtml" />
+    <Content Include="Views\EmailAddresses\Edit.cshtml" />
+    <Content Include="Views\EmailAddresses\Index.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Create.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Delete.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Details.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Edit.cshtml" />
+    <Content Include="Views\TelephoneNumbers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,7 +20,8 @@ namespace address_book_ggs_training.Controllers
         // GET: TelephoneNumbers
         public async Task<ActionResult> Index()
         {
-            return View(await db.TelephoneNumbers.ToListAsync());
+            var telephoneNumbers = db.TelephoneNumbers.Include(t => t.Contact);
+            return View(await telephoneNumbers.ToListAsync());
         }
 
         // GET: TelephoneNumbers/Details/5
@@ -41,15 +42,16 @@ namespace address_book_ggs_training.Controllers
         // GET: TelephoneNumbers/Create
         public ActionResult Create()
         {
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name");
             return View();
         }
 
         // POST: TelephoneNumbers/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Number,Type")] TelephoneNumber telephoneNumber)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ContactId,Number,Type")] TelephoneNumber telephoneNumber)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +60,7 @@ namespace address_book_ggs_training.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", telephoneNumber.ContactId);
             return View(telephoneNumber);
         }
 
@@ -73,15 +76,16 @@ namespace address_book_ggs_training.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", telephoneNumber.ContactId);
             return View(telephoneNumber);
         }
 
         // POST: TelephoneNumbers/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Number,Type")] TelephoneNumber telephoneNumber)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,ContactId,Number,Type")] TelephoneNumber telephoneNumber)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +93,7 @@ namespace address_book_ggs_training.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", telephoneNumber.ContactId);
             return View(telephoneNumber);
         }
 

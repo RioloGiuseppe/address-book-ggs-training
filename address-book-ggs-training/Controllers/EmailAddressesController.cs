@@ -20,7 +20,8 @@ namespace address_book_ggs_training.Controllers
         // GET: EmailAddresses
         public async Task<ActionResult> Index()
         {
-            return View(await db.EmailAddresses.ToListAsync());
+            var emailAddresses = db.EmailAddresses.Include(e => e.Contact);
+            return View(await emailAddresses.ToListAsync());
         }
 
         // GET: EmailAddresses/Details/5
@@ -41,15 +42,16 @@ namespace address_book_ggs_training.Controllers
         // GET: EmailAddresses/Create
         public ActionResult Create()
         {
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name");
             return View();
         }
 
         // POST: EmailAddresses/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Email,Type")] EmailAddress emailAddress)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Email,Type,ContactId")] EmailAddress emailAddress)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +60,7 @@ namespace address_book_ggs_training.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", emailAddress.ContactId);
             return View(emailAddress);
         }
 
@@ -73,15 +76,16 @@ namespace address_book_ggs_training.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", emailAddress.ContactId);
             return View(emailAddress);
         }
 
         // POST: EmailAddresses/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Email,Type")] EmailAddress emailAddress)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Email,Type,ContactId")] EmailAddress emailAddress)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +93,7 @@ namespace address_book_ggs_training.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.ContactId = new SelectList(db.Contacts, "Id", "Name", emailAddress.ContactId);
             return View(emailAddress);
         }
 
