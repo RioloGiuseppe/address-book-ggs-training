@@ -13,7 +13,7 @@ namespace address_book_ggs_training
 
             //app.CreatePerOwinContext(() => new InMemoryDB());
             app.CreatePerOwinContext(InMemoryDB.CreateSingleton);
-            app.CreatePerOwinContext<StoreDB>(StoreDB.Create);
+            app.CreatePerOwinContext<ContactsManager>(ContactsManager.Create);
         }
     }
 }

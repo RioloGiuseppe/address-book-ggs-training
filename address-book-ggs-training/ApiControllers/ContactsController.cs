@@ -1,4 +1,5 @@
 ﻿using address_book_ggs_training.Entities;
+using address_book_ggs_training.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
@@ -10,32 +11,17 @@ namespace address_book_ggs_training.ApiControllers
 {
     public class ContactsController : ApiController
     {
-        protected StoreDB _storeDB;
 
-        protected InMemoryDB _inMemoryDB;
+        readonly ContactsManager _storeDB;
 
-        public StoreDB StoreDB
+        public ContactsController()
         {
-            get
-            {
-                return _storeDB ?? Request.GetOwinContext().Get<StoreDB>();
-            }
-            private set
-            {
-                _storeDB = value;
-            }
+
         }
 
-        public InMemoryDB InMemoryDB
+        public ContactsController(ContactsManager storeDB)
         {
-            get
-            {
-                return _inMemoryDB ?? Request.GetOwinContext().Get<InMemoryDB>();
-            }
-            private set
-            {
-                _inMemoryDB = value;
-            }
+            _storeDB = storeDB;
         }
 
         // GET: api/Contacts
@@ -44,7 +30,7 @@ namespace address_book_ggs_training.ApiControllers
         {
             try
             {
-                return await StoreDB.GetContactsShortAsync();
+                return await _storeDB.GetContactsShortAsync();
             }
             catch (Exception)
             {
@@ -58,7 +44,7 @@ namespace address_book_ggs_training.ApiControllers
         {
             try
             {
-                return await StoreDB.GetContactByIdAsync(id);
+                return await _storeDB.GetContactByIdAsync(id);
             }
             catch (Exception)
             {
@@ -72,7 +58,7 @@ namespace address_book_ggs_training.ApiControllers
         {
             try
             {
-                var ret = await StoreDB.AddContactAsync(value);
+                var ret = await _storeDB.AddContactAsync(value);
                 return ret;
             }
             catch (Exception e)
@@ -87,7 +73,7 @@ namespace address_book_ggs_training.ApiControllers
         {
             try
             {
-                return await StoreDB.UpdateContactAsync(id, value);
+                return await _storeDB.UpdateContactAsync(id, value);
             }
             catch (Exception)
             {
@@ -101,7 +87,7 @@ namespace address_book_ggs_training.ApiControllers
         {
             try
             {
-                return await StoreDB.RemoveContactAsync(id);
+                return await _storeDB.RemoveContactAsync(id);
             }
             catch (Exception)
             {

@@ -9,22 +9,26 @@ using System.Threading.Tasks;
 
 namespace address_book_ggs_training.Entities
 {
-    public class StoreDB : IDisposable, IContactsManager
+    public class ContactsManager : IDisposable, IContactsManager
     {
         private bool disposedValue;
         protected ApplicationDbContext _context;
 
-        public IDbSet<Contact> Contacts { get => _context.Contacts; }
-
-        public static StoreDB Create(IdentityFactoryOptions<StoreDB> options, IOwinContext context)
+        public ContactsManager(ApplicationDbContext context)
         {
-            return new StoreDB(context);
+            _context = context;
         }
 
-        protected StoreDB(IOwinContext context)
+        protected ContactsManager(IOwinContext context)
         {
             _context = context.Get<ApplicationDbContext>();
         }
+        public static ContactsManager Create(IdentityFactoryOptions<ContactsManager> options, IOwinContext context)
+        {
+            return new ContactsManager(context);
+        }
+
+        public IDbSet<Contact> Contacts { get => _context.Contacts; }
 
         #region Sync
 

@@ -30,13 +30,13 @@ namespace address_book_ggs_training.Controllers
             }
         }
 
-        protected StoreDB _storeDB;
+        protected ContactsManager _storeDB;
 
-        public StoreDB StoreDB
+        public ContactsManager StoreDB
         {
             get
             {
-                return _storeDB ?? HttpContext.GetOwinContext().Get<StoreDB>();
+                return _storeDB ?? HttpContext.GetOwinContext().Get<ContactsManager>();
             }
             private set
             {
