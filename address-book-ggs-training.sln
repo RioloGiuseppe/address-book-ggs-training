@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training\address-book-ggs-training.csproj", "{C557DC03-8485-4D16-834D-049BB313DE98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training\address-book-ggs-training.csproj", "{68A99ECB-1C21-4BA9-8201-E47C11E72019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ef-samples", "ef-samples\ef-samples.csproj", "{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C557DC03-8485-4D16-834D-049BB313DE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C557DC03-8485-4D16-834D-049BB313DE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C557DC03-8485-4D16-834D-049BB313DE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C557DC03-8485-4D16-834D-049BB313DE98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
