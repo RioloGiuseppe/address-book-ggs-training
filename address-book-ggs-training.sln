@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ef-samples", "ef-samples\ef-samples.csproj", "{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mongo-db-driver-sample", "mongo-db-driver-sample\mongo-db-driver-sample.csproj", "{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
