@@ -38,11 +38,24 @@ namespace mongo_db_driver_sample
                 Console.WriteLine("\nGET contact by name");
                 Console.WriteLine("Insert a name to find contact info");
                 string ContactName2 = Console.ReadLine();
-                var contacts = await client.Contacts.Find(c => c.Name == ContactName2).ToListAsync();
-                foreach (Contact c in contacts)
+                var contacts1 = await client.Contacts.Find(c => c.Name == ContactName2).ToListAsync();
+                foreach (Contact c in contacts1)
                 {
                     Console.WriteLine("{0} {1}", c.Name, c.LastName);
                 }
+
+                // Delete contact by name
+                Console.WriteLine("\nDELETE contact by name");
+                Console.WriteLine("Insert a name to delete contact/s");
+                string ContactName3 = Console.ReadLine();
+                var contacts2 = await client.Contacts.Find(c => c.Name == ContactName3).ToListAsync();
+                Console.WriteLine("Deleted contacts:");
+                foreach (Contact c in contacts2)
+                {
+                    Console.WriteLine("{0} {1}", c.Name, c.LastName);
+                }
+                await client.Contacts.DeleteManyAsync(c => c.Name == ContactName3);
+                Console.WriteLine("Delete success!");
             }, TaskCreationOptions.LongRunning);
             are.WaitOne();
         }
