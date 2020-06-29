@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using aspnet_core_sample.Storages;
+using aspnet_core_sample.Managers;
 
 namespace aspnet_core_sample
 {
@@ -36,8 +37,8 @@ namespace aspnet_core_sample
 
 
             services.AddScoped<GradeStorage>();
-            services.AddScoped<StudentStorage>();
-
+            services.AddScoped<IStudentStorage, StudentStorage>();
+            services.AddScoped<GradeManager>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
