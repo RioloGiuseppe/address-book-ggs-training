@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training.csproj", "{3A097581-FDF7-4B9B-9F9C-1119C72F962F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "address-book-ggs-training", "address-book-ggs-training.csproj", "{68A99ECB-1C21-4BA9-8201-E47C11E72019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ef-samples", "..\ef-samples\ef-samples.csproj", "{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mongo-db-driver-sample", "..\mongo-db-driver-sample\mongo-db-driver-sample.csproj", "{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A097581-FDF7-4B9B-9F9C-1119C72F962F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A097581-FDF7-4B9B-9F9C-1119C72F962F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A097581-FDF7-4B9B-9F9C-1119C72F962F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A097581-FDF7-4B9B-9F9C-1119C72F962F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A99ECB-1C21-4BA9-8201-E47C11E72019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34F8AD2-C8B3-4E6B-BC19-682E75A889C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
