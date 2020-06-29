@@ -12,6 +12,7 @@ using aspnet_core_sample.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using aspnet_core_sample.Storages;
 
 namespace aspnet_core_sample
 {
@@ -32,6 +33,12 @@ namespace aspnet_core_sample
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddScoped<GradeStorage>();
+            services.AddScoped<StudentStorage>();
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
