@@ -32,5 +32,11 @@ namespace aspnet_core_sample.Managers
             => await StudentStorage.Get(id, cancellationToken);
         public async Task<List<Student>> ListStudent(int skip = 0, int? take = null, CancellationToken cancellationToken = default)
             => await StudentStorage.List(skip, take, cancellationToken);
+
+        // add relation manager
+
+        // add/remove relation Student <=> Grade
+        // using storage classes
+
     }
 }
