@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ef-samples", "..\ef-samples
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mongo-db-driver-sample", "..\mongo-db-driver-sample\mongo-db-driver-sample.csproj", "{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspnet-core-sample", "..\aspnet-core-sample\aspnet-core-sample.csproj", "{91BB3CEC-1237-4840-9BBE-A92C80480D28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDFF9FF8-B011-4A5A-B5AA-50C4F849FC62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91BB3CEC-1237-4840-9BBE-A92C80480D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BB3CEC-1237-4840-9BBE-A92C80480D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BB3CEC-1237-4840-9BBE-A92C80480D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BB3CEC-1237-4840-9BBE-A92C80480D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
