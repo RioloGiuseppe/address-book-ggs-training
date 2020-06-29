@@ -60,7 +60,14 @@
     <Compile Include="Migrations\202006261348461_InitialCreate.designer.cs">
       <DependentUpon>202006261348461_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006290925469_Add-O2M.cs" />
+    <Compile Include="Migrations\202006290925469_Add-O2M.designer.cs">
+      <DependentUpon>202006290925469_Add-O2M.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="OneToMany\Grade.cs" />
+    <Compile Include="OneToMany\O2MContext.cs" />
+    <Compile Include="OneToMany\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202006261348461_InitialCreate.resx">
       <DependentUpon>202006261348461_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006290925469_Add-O2M.resx">
+      <DependentUpon>202006290925469_Add-O2M.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
