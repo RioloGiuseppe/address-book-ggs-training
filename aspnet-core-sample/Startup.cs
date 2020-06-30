@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using aspnet_core_sample.Storages;
 using aspnet_core_sample.Managers;
+using aspnet_core_sample.Storages.ER;
 
 namespace aspnet_core_sample
 {
@@ -35,7 +36,7 @@ namespace aspnet_core_sample
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
+            services.AddSingleton<MongoDbClient>();
             services.AddScoped<IGradeStorage, GradeStorage>();
             services.AddScoped<IStudentStorage, StudentStorage>();
             services.AddScoped<GradeManager>();
