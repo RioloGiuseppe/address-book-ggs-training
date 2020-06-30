@@ -230,7 +230,7 @@
     <Compile Include="Entities\InMemoryDB.cs" />
     <Compile Include="Entities\EmailAddress.cs" />
     <Compile Include="Entities\ITypedId.cs" />
-    <Compile Include="Entities\StoreDB.cs" />
+    <Compile Include="Entities\ContactsManager.cs" />
     <Compile Include="Entities\TelephoneNumber.cs" />
     <Compile Include="Extension\IDbSetExtensions.cs" />
     <Compile Include="Extension\LinqExplain.cs" />
@@ -284,6 +284,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactViewModels.cs" />
+    <Compile Include="Models\IDataSource.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

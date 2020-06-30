@@ -14,19 +14,28 @@ namespace address_book_ggs_training.Entities
         private bool disposedValue;
         protected ApplicationDbContext _context;
 
-        public ContactsManager(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        #region Owin
 
         protected ContactsManager(IOwinContext context)
         {
             _context = context.Get<ApplicationDbContext>();
         }
+
         public static ContactsManager Create(IdentityFactoryOptions<ContactsManager> options, IOwinContext context)
         {
             return new ContactsManager(context);
         }
+
+        #endregion
+
+        #region Unity
+
+        public ContactsManager(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        #endregion
 
         public IDbSet<Contact> Contacts { get => _context.Contacts; }
 
