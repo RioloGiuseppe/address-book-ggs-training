@@ -9,7 +9,7 @@ namespace aspnet_core_sample.Models
 
     public class Student
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
         public string Name { get; set; }
 
         public int CurrentGradeId { get; set; }

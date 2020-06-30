@@ -13,7 +13,7 @@ namespace aspnet_core_sample.Models
             this.Students = new HashSet<Student>();
         }
 
-        public int GradeId { get; set; }
+        public virtual int GradeId { get; set; }
         public string GradeName { get; set; }
         public string Section { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using aspnet_core_sample.Models;
 using aspnet_core_sample.Storages;
+using aspnet_core_sample.Storages.ER;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,11 @@ namespace aspnet_core_sample.Managers
         protected virtual ILogger<GradeManager> Logger { get; private set; }
         protected virtual IGradeStorage GradeStorage { get; private set; }
         protected virtual IStudentStorage StudentStorage { get; private set; }
-        public GradeManager(ILogger<GradeManager> logger, GradeStorage gradeStorage, StudentStorage studentStorage)
+        public GradeManager(ILogger<GradeManager> logger, IGradeStorage gradeStorage, IStudentStorage studentStorage)
         {
             Logger = logger;
-            GradeStorage = GradeStorage;
-            StudentStorage = StudentStorage;
+            GradeStorage = gradeStorage;
+            StudentStorage = studentStorage;
         }
 
         #region CRUD Student
