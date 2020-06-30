@@ -30,5 +30,41 @@ namespace aspnet_core_sample.ApiControllers
         {
             return await GradeManager.ListStudent(skip, take);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Student>> GetStudents(int id)
+        {
+            return await GradeManager.GetStudent(id);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task EditStudent(int id, Student student)
+        {
+            await GradeManager.EditStudent(id, student);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<bool>> DeleteStudent(int id)
+        {
+            return await GradeManager.DeleteStudent(id);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task CreateStudent(Student student)
+        {
+            await GradeManager.CreateStudent(student);
+        }
     }
 }
