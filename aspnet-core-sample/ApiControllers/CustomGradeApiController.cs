@@ -35,7 +35,7 @@ namespace aspnet_core_sample.ApiControllers
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Student>> GetStudents(int id)
+        public async Task<ActionResult<Student>> GetStudent(int id)
         {
             return await GradeManager.GetStudent(id);
         }
