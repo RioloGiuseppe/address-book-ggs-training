@@ -66,5 +66,50 @@ namespace aspnet_core_sample.ApiControllers
         {
             await GradeManager.CreateStudent(student);
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<List<Grade>>> ListGrades(int skip = 0, int? take = null)
+        {
+            return await GradeManager.ListGrade(skip, take);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Grade>> GetGrade(int id)
+        {
+            return await GradeManager.GetGrade(id);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task EditGrade(int id, Grade grade)
+        {
+            await GradeManager.EditGrade(id, grade);
+        }
+
+        [HttpDelete]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<bool>> DeleteGrade(int id)
+        {
+            return await GradeManager.DeleteGrade(id);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task CreateGrade(Grade grade)
+        {
+            await GradeManager.CreateGrade(grade);
+        }
     }
 }
