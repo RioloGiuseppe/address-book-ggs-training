@@ -111,5 +111,23 @@ namespace aspnet_core_sample.ApiControllers
         {
             await GradeManager.CreateGrade(grade);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task AddStudent(AddStudentToGradeModel model)
+        {
+            await GradeManager.AddStudent(model);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task RemoveStudent(AddStudentToGradeModel model)
+        {
+            await GradeManager.RemoveStudent(model);
+        }
     }
 }

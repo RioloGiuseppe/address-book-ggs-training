@@ -52,10 +52,26 @@ namespace aspnet_core_sample.Managers
 
         #endregion
 
-        // add relation manager
+        #region Relation
 
-        // add/remove relation Student <=> Grade
-        // using storage classes
+        public async Task AddStudent(AddStudentToGradeModel model)
+        {
+            var grade = await GradeStorage.Get(model.GradeId);
+            grade.Students.Add(model.Student);
+            await GradeStorage.Update(model.GradeId, grade);
+        }
 
+        public async Task RemoveStudent(AddStudentToGradeModel model)
+        {
+            var grade = await GradeStorage.Get(model.GradeId);
+            var student = grade.Students.FirstOrDefault(s => s.Id == model.Student.Id);
+            if (student != null)
+            {
+                grade.Students.Remove(student);
+                await GradeStorage.Update(model.GradeId, grade);
+            }
+        }
+
+        #endregion
     }
 }

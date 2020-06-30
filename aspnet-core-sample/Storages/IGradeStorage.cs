@@ -12,5 +12,6 @@ namespace aspnet_core_sample.Storages
         Task Edit(int id, Grade grade, CancellationToken cancellationToken = default);
         Task<Grade> Get(int id, CancellationToken cancellationToken = default);
         Task<List<Grade>> List(int skip = 0, int? take = null, CancellationToken cancellationToken = default);
+        Task Update(int id, Grade grade, CancellationToken cancellationToken = default);
     }
 }

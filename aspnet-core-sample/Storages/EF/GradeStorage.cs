@@ -83,6 +83,30 @@ namespace aspnet_core_sample.Storages.ER
             return false;
         }
 
+        public async Task Update(int id, Grade grade, CancellationToken cancellationToken = default)
+        {
+            if (id != grade.GradeId)
+            {
+                throw new Exception("Invalied ID");
+            }
+            try
+            {
+                Context.Entry(grade).State = EntityState.Modified;
+                await Context.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await Exists(grade.GradeId, cancellationToken))
+                {
+                    throw new Exception("Not Found");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
         private async Task<bool> Exists(int id, CancellationToken cancellationToken = default)
         {
             return await Context.Grades.AnyAsync(e => e.GradeId == id, cancellationToken);

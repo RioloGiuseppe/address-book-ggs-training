@@ -105,5 +105,10 @@ namespace aspnet_core_sample.Storages.Mongo
                 return null;
             }
         }
+
+        public Task Update(int id, Grade grade, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
