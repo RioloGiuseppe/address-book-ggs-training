@@ -12,8 +12,8 @@ namespace aspnet_core_sample.Managers
     public class GradeManager
     {
         protected virtual ILogger<GradeManager> Logger { get; private set; }
-        protected virtual GradeStorage GradeStorage { get; private set; }
-        protected virtual StudentStorage StudentStorage { get; private set; }
+        protected virtual IGradeStorage GradeStorage { get; private set; }
+        protected virtual IStudentStorage StudentStorage { get; private set; }
         public GradeManager(ILogger<GradeManager> logger, GradeStorage gradeStorage, StudentStorage studentStorage)
         {
             Logger = logger;
@@ -21,6 +21,7 @@ namespace aspnet_core_sample.Managers
             StudentStorage = StudentStorage;
         }
 
+        #region CRUD Student
 
         public async Task CreateStudent(Student student, CancellationToken cancellationToken = default)
             => await StudentStorage.Create(student, cancellationToken);
@@ -32,6 +33,23 @@ namespace aspnet_core_sample.Managers
             => await StudentStorage.Get(id, cancellationToken);
         public async Task<List<Student>> ListStudent(int skip = 0, int? take = null, CancellationToken cancellationToken = default)
             => await StudentStorage.List(skip, take, cancellationToken);
+
+        #endregion
+
+        #region CRUD Grade
+
+        public async Task CreateGrade(Grade Grade, CancellationToken cancellationToken = default)
+            => await GradeStorage.Create(Grade, cancellationToken);
+        public async Task<bool> DeleteGrade(int id, CancellationToken cancellationToken = default)
+            => await GradeStorage.Delete(id, cancellationToken);
+        public async Task EditGrade(int id, Grade Grade, CancellationToken cancellationToken = default)
+            => await GradeStorage.Edit(id, Grade, cancellationToken);
+        public async Task<Grade> GetGrade(int id, CancellationToken cancellationToken = default)
+            => await GradeStorage.Get(id, cancellationToken);
+        public async Task<List<Grade>> ListGrade(int skip = 0, int? take = null, CancellationToken cancellationToken = default)
+            => await GradeStorage.List(skip, take, cancellationToken);
+
+        #endregion
 
         // add relation manager
 

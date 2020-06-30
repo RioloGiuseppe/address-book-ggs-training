@@ -22,7 +22,7 @@ namespace aspnet_core_sample.ApiControllers
             GradeManager = manager;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -31,7 +31,7 @@ namespace aspnet_core_sample.ApiControllers
             return await GradeManager.ListStudent(skip, take);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -40,7 +40,7 @@ namespace aspnet_core_sample.ApiControllers
             return await GradeManager.GetStudent(id);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -49,7 +49,7 @@ namespace aspnet_core_sample.ApiControllers
             await GradeManager.EditStudent(id, student);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

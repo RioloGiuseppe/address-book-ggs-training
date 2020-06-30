@@ -36,7 +36,7 @@ namespace aspnet_core_sample
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
-            services.AddScoped<GradeStorage>();
+            services.AddScoped<IGradeStorage, GradeStorage>();
             services.AddScoped<IStudentStorage, StudentStorage>();
             services.AddScoped<GradeManager>();
 

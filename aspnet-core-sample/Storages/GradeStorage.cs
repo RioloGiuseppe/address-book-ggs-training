@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace aspnet_core_sample.Storages
 {
-    public class GradeStorage
+    public class GradeStorage : IGradeStorage
     {
         protected virtual ILogger<GradeStorage> Logger { get; private set; }
         protected virtual ApplicationDbContext Context { get; private set; }
